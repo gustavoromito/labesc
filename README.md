@@ -1,27 +1,64 @@
-# [Start Bootstrap](http://startbootstrap.com/) - [SB Admin 2](http://startbootstrap.com/template-overviews/sb-admin-2/)
+# Projeto de Resolução de Problemas 2
 
-[SB Admin 2](http://startbootstrap.com/template-overviews/sb-admin-2/) is an open source, admin dashboard template for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/).
+## Read me:
 
-## Getting Started
+- Nome do projeto:
+	
+	A definir.
 
-To use this template, choose one of the following options to get started:
-* Download the latest release on Start Bootstrap
-* Fork this repository on GitHub
-* Install via bower using `bower install startbootstrap-sb-admin-2`
+- Submódulos e biblioteca:
 
-## Bugs and Issues
+	A definir.
 
-Have a bug or an issue with this template? [Open a new issue](https://github.com/IronSummitMedia/startbootstrap-sb-admin-2/issues) here on GitHub or leave a comment on the [template overview page at Start Bootstrap](http://startbootstrap.com/template-overviews/sb-admin-2/).
+- Descrição do projeto, submódulos e biblioteca:
 
-## Creator
+	A definir.
 
-Start Bootstrap was created by and is maintained by **David Miller**, Managing Parter at [Iron Summit Media Strategies](http://www.ironsummitmedia.com/).
+- Instruções da documentação:
 
-* https://twitter.com/davidmillerskt
-* https://github.com/davidtmiller
+	A definir.
 
-Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
+- Instruções de instalação:
 
-## Copyright and License
+	A definir.
 
-Copyright 2013-2015 Iron Summit Media Strategies, LLC. Code released under the [Apache 2.0](https://github.com/IronSummitMedia/startbootstrap-sb-admin-2/blob/gh-pages/LICENSE) license.
+- Instruções de configurações:
+
+	A definir.
+
+- Instruções de operações:
+
+	A definir.
+
+- Instruções da última versão:
+
+	A definir.
+
+- Informações do distribuidor:
+
+	*Integrantes*: Geraldo José dos Santos Júnior, Gustavo Nogueira Romito, Kaio Henrique Pedroza Silva, Leonardo Paladia Soares Silva, Mateus Lourenção Dias, Matheus Santos Pavanelli.
+
+	*Emails*: geraldo.jose.santos@usp.br, guromito@gmail.com, kaio.silva@usp.br, leopaladia@gmail.com, mateusldias@gmail.com, matheus.pavanelli@usp.br
+	
+| Integrantes | Email |
+|-------------|-------|
+| Geraldo José dos Santos Júnior | geraldo.jose.santos@usp.br |
+| Gustavo Nogueira Romito | guromito@gmail.com |
+| Kaio Henrique Pedroza Silva | kaio.silva@usp.br |
+| Leonardo Paladia Soares Silva | leopaladia@gmail.com |
+| Mateus Lourenção Dias | mateusldias@gmail.com |
+| Matheus Santos Pavanelli | matheus.pavanelli@usp.br |
+
+	*Local*: Rua Arlindo Béttio, 1000 - Ermelino Matarazzo, São Paulo - SP, 03828-000.
+
+- Bugs conhecidos:
+
+	Nenhum.
+
+- Créditos e conhecimentos:
+
+	A definir.
+
+- Licença e direitos de informações:
+
+	A definir.
