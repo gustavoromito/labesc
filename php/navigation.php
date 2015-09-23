@@ -49,16 +49,16 @@
                             <a href="../index.html"><i class="fa fa-dashboard fa-fw"></i> Home</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Equipe</a>
+                            <a href="team.php"><i class="fa fa-bar-chart-o fa-fw"></i> Equipe</a>
                         </li>
                         <li>
-                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Publicações</a>
+                            <a href="publications.php"><i class="fa fa-table fa-fw"></i> Publicações</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Coleção SRMP</a>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> Coleção SRMP</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Dashboard<span class="fa arrow"></span></a>
+                            <a href="dashboard.php"><i class="fa fa-wrench fa-fw"></i> Dashboard<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="panels-wells.html">Opção 1</a>
