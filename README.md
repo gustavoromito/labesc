@@ -6,7 +6,7 @@
 	
 LABESC (Laboratório)
 
-### Tarefas
+### Tarefas:
 
 * [x] Documento de requisitos.
 * [ ] Desenvolver o banco de dados.
@@ -15,13 +15,11 @@ LABESC (Laboratório)
 
 ### Descrição do projeto e submódulos:
 
-O sistema consiste em desenvolver um banco de dados que possa auxiliar a Doutora professora "X" em ...
+<p style='text-align: justify;'>O sistema consiste em desenvolver um banco de dados que possa auxiliar a Doutora professora "X" em cadastrar sequenciamentos em um sistema em que possa fornecer os dados da pesquisa e um pdf com o resumo dos mesmos.</p>
 
 ### Instruções de operações:
 
-* Cadastro do aluno:
-
-* Cadastro do professor:
+* Cadastro do usuário: função de inserção no banco de dados.
 
 * Cadastro do sequenciamento:
 
@@ -50,4 +48,4 @@ Nenhum.
 
 ### Licença e direitos de informações:
 
-Sistema produzido de cunho institucional visando o auxílio à Universidade de Campinas em seu desenvolvimento de um banco de dados...
+<p style='text-align: justify;'>Sistema produzido de cunho institucional visando o auxílio à Universidade de Campinas em seu desenvolvimento de um banco de dados...</p>
