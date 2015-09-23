@@ -46,16 +46,14 @@
     	
         <div id="page-wrapper">
             <div class="row">
-                <div class="col-lg-12" style="text-align: center">
-                    <img src="../src/labesc-logo.jpg" alt="LabEsC">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Publicações</h1>
                 </div>
+                <!-- /.col-lg-12 -->
             </div>
 
             <div class="col-lg-12">
-                <div class="panel panel-green">
-                    <div class="panel-heading">
-                        O LabEsC
-                    </div>
+                <div class="panel">
                     <div class="panel-body">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere sem eu urna volutpat rutrum. Integer vel dolor consequat, placerat odio at, elementum nunc. Vestibulum lobortis metus sed quam vulputate, a gravida felis scelerisque. Fusce rutrum dolor ac lacinia convallis. Nullam et elit imperdiet, posuere nisi elementum, cursus lacus. Maecenas in purus ornare, scelerisque ante vel, bibendum turpis. Etiam dictum tempor nibh eu faucibus. Maecenas nec massa sed tortor faucibus accumsan. Nunc nec vehicula lacus, a laoreet mauris. Vivamus id sollicitudin massa. Nam congue turpis at sapien fringilla, id faucibus magna convallis.</p>
                         <p>Etiam ullamcorper et eros non condimentum. Nam consequat commodo tincidunt. Ut efficitur nibh tellus, dignissim mollis diam tincidunt a. Aenean consequat bibendum sodales. Phasellus gravida ac tellus non ultrices. Quisque sed nunc vel nisl interdum elementum ac et diam. Nulla blandit non metus a facilisis. Curabitur at diam hendrerit, facilisis ex varius, aliquet sapien. Vivamus libero orci, dictum sit amet nisi vel, tincidunt imperdiet ante. Duis laoreet tortor a nibh eleifend sodales. Praesent quis tellus nec tortor lacinia finibus. Phasellus id efficitur eros.</p>
