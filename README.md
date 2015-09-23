@@ -1,44 +1,36 @@
 # Projeto de Resolução de Problemas 2
 
-## Read me:
+## Informações
 
-- Nome do projeto:
+### Nome do projeto:
 	
-	A definir.
+LABESC (Laboratório)
 
-- Submódulos e biblioteca:
+### Tarefas
 
-	A definir.
+* [x] Documento de requisitos.
+* [ ] Desenvolver o banco de dados.
+* [ ] Especificar o readme.
+* [ ] Hospedagem.
 
-- Descrição do projeto, submódulos e biblioteca:
+### Descrição do projeto e submódulos:
 
-	A definir.
+O sistema consiste em desenvolver um banco de dados que possa auxiliar a Doutora professora "X" em ...
 
-- Instruções da documentação:
+### Instruções de operações:
 
-	A definir.
+* Cadastro do aluno:
 
-- Instruções de instalação:
+* Cadastro do professor:
 
-	A definir.
+* Cadastro do sequenciamento:
 
-- Instruções de configurações:
+	* Avulso:
 
-	A definir.
+	* Múltiplo:
 
-- Instruções de operações:
+### Informações do distribuidor:
 
-	A definir.
-
-- Instruções da última versão:
-
-	A definir.
-
-- Informações do distribuidor:
-
-	*Integrantes*: Geraldo José dos Santos Júnior, Gustavo Nogueira Romito, Kaio Henrique Pedroza Silva, Leonardo Paladia Soares Silva, Mateus Lourenção Dias, Matheus Santos Pavanelli.
-
-	*Emails*: geraldo.jose.santos@usp.br, guromito@gmail.com, kaio.silva@usp.br, leopaladia@gmail.com, mateusldias@gmail.com, matheus.pavanelli@usp.br
 	
 | Integrantes | Email |
 |-------------|-------|
@@ -49,16 +41,13 @@
 | Mateus Lourenção Dias | mateusldias@gmail.com |
 | Matheus Santos Pavanelli | matheus.pavanelli@usp.br |
 
-	*Local*: Rua Arlindo Béttio, 1000 - Ermelino Matarazzo, São Paulo - SP, 03828-000.
+	
+__Local__: Rua Arlindo Béttio, 1000 - Ermelino Matarazzo, São Paulo - SP, 03828-000.
 
-- Bugs conhecidos:
+### Bugs conhecidos:
 
-	Nenhum.
+Nenhum.
 
-- Créditos e conhecimentos:
+### Licença e direitos de informações:
 
-	A definir.
-
-- Licença e direitos de informações:
-
-	A definir.
+Sistema produzido de cunho institucional visando o auxílio à Universidade de Campinas em seu desenvolvimento de um banco de dados...
