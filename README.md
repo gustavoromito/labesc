@@ -1,27 +1,51 @@
-# [Start Bootstrap](http://startbootstrap.com/) - [SB Admin 2](http://startbootstrap.com/template-overviews/sb-admin-2/)
+# Projeto de Resolução de Problemas 2
 
-[SB Admin 2](http://startbootstrap.com/template-overviews/sb-admin-2/) is an open source, admin dashboard template for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/).
+## Informações
 
-## Getting Started
+### Nome do projeto:
+	
+LABESC (Laboratório)
 
-To use this template, choose one of the following options to get started:
-* Download the latest release on Start Bootstrap
-* Fork this repository on GitHub
-* Install via bower using `bower install startbootstrap-sb-admin-2`
+### Tarefas:
 
-## Bugs and Issues
+* [x] Documento de requisitos.
+* [ ] Desenvolver o banco de dados.
+* [ ] Especificar o readme.
+* [ ] Hospedagem.
 
-Have a bug or an issue with this template? [Open a new issue](https://github.com/IronSummitMedia/startbootstrap-sb-admin-2/issues) here on GitHub or leave a comment on the [template overview page at Start Bootstrap](http://startbootstrap.com/template-overviews/sb-admin-2/).
+### Descrição do projeto e submódulos:
 
-## Creator
+<p style='text-align: justify;'>O sistema consiste em desenvolver um banco de dados que possa auxiliar a Doutora professora "X" em cadastrar sequenciamentos em um sistema em que possa fornecer os dados da pesquisa e um pdf com o resumo dos mesmos.</p>
 
-Start Bootstrap was created by and is maintained by **David Miller**, Managing Parter at [Iron Summit Media Strategies](http://www.ironsummitmedia.com/).
+### Instruções de operações:
 
-* https://twitter.com/davidmillerskt
-* https://github.com/davidtmiller
+* Cadastro do usuário: função de inserção no banco de dados.
 
-Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
+* Cadastro do sequenciamento:
 
-## Copyright and License
+	* Avulso:
 
-Copyright 2013-2015 Iron Summit Media Strategies, LLC. Code released under the [Apache 2.0](https://github.com/IronSummitMedia/startbootstrap-sb-admin-2/blob/gh-pages/LICENSE) license.
+	* Múltiplo:
+
+### Informações do distribuidor:
+
+	
+| Integrantes | Email |
+|-------------|-------|
+| Geraldo José dos Santos Júnior | geraldo.jose.santos@usp.br |
+| Gustavo Nogueira Romito | guromito@gmail.com |
+| Kaio Henrique Pedroza Silva | kaio.silva@usp.br |
+| Leonardo Paladia Soares Silva | leopaladia@gmail.com |
+| Mateus Lourenção Dias | mateusldias@gmail.com |
+| Matheus Santos Pavanelli | matheus.pavanelli@usp.br |
+
+	
+__Local__: Rua Arlindo Béttio, 1000 - Ermelino Matarazzo, São Paulo - SP, 03828-000.
+
+### Bugs conhecidos:
+
+Nenhum.
+
+### Licença e direitos de informações:
+
+<p style='text-align: justify;'>Sistema produzido de cunho institucional visando o auxílio à Universidade de Campinas em seu desenvolvimento de um banco de dados...</p>
