@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Equipe</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -21,6 +21,7 @@
     <link href="../dist/css/timeline.css" rel="stylesheet">
 
     <!-- Custom CSS -->
+    <link href="../dist/css/round-about.css" rel="stylesheet">
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
@@ -43,68 +44,59 @@
     <div id="wrapper">
     	<!-- include navigation.php -->
     	<?php include("../php/navigation.php"); ?>
-    	
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Equipe</h1>
                 </div>
-                <!-- /.col-lg-12 -->
             </div>
             <div class="row">
-                <div class="col-lg-8">
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-clock-o fa-fw"></i> Time
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                  			<div class="table-responsive">
-                              <table class="table table-bordered table-hover table-striped">
-                                  <thead>
-                                      <tr>
-                                          <th>Nome</th>
-                                          <th>Função</th>
-                                          <th>Latex</th>
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-                                      <tr>
-                                          <td>Gustavo Romito Nogueira</td>
-                                          <td>Professor Doutor</td>
-                                          <td>Link Para Site</td>
-                                      </tr>
-                                      <tr>
-                                          <td>Geraldo Jr.</td>
-                                          <td>Aluno de Graduação</td>
-                                          <td>Link Para Site</td>
-                                      </tr>
-                                      <tr>
-                                          <td>Mateus Loren</td>
-                                          <td>Aluno de Pós-Graduação</td>
-                                          <td>Link Para Site</td>
-                                      </tr>
-                                      <tr>
-                                          <td>Kaio Henrique</td>
-                                          <td>Professor</td>
-                                          <td>Link Para Site</td>
-                                      </tr>
-                                  </tbody>
-                              </table>
-                          </div>
-                          <!-- /.table-responsive -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-8 -->
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /#page-wrapper -->
 
+              <!-- o container sera montado atraves de um template de forma dinamica-->
+              <!-- adicionar um crop para o tamanho da imagem-->
+                <div class="col-lg-4 col-sm-6 text-center" style="padding-bottom:15px;">
+                  <img class="img-circle img-responsive img-center" src="../src/romito.jpg" alt="" style="width: 200px; height: 200px;">
+                  <h3>Gustavo Romito</h3>
+                  <h4>Administrador</h4>
+                  <button type="button" class="btn btn-success btn-xs">Ver Perfil</button>
+                </div>
+                
+                <div class="col-lg-4 col-sm-6 text-center" style="padding-bottom:15px;">
+                  <img class="img-circle img-responsive img-center" src="../src/loren.jpg" alt="" style="width: 200px; height: 200px;">
+                  <h3>Mateus Lourenção</h3>
+                  <h4>Professor Doutor</h4>
+                  <button type="button" class="btn btn-success btn-xs">Ver Perfil</button>
+                </div>
+                
+                <div class="col-lg-4 col-sm-6 text-center" style="padding-bottom:15px;">
+                  <img class="img-circle img-responsive img-center" src="../src/paladia.jpg" alt="" style="width: 200px; height: 200px;">
+                  <h3>Leonardo Paladia</h3>
+                  <h4>Professor</h4>
+                  <button type="button" class="btn btn-success btn-xs">Ver Perfil</button>
+                </div>
+
+                <div class="col-lg-4 col-sm-6 text-center" style="padding-bottom:15px;">
+                  <img class="img-circle img-responsive img-center" src="../src/pavanelli.jpg" alt="" style="width: 200px; height: 200px;">
+                  <h3>Matheus Pavanelli</h3>
+                  <h4>Professor Visitante</h4>
+                  <button type="button" class="btn btn-success btn-xs">Ver Perfil</button>
+                </div>
+                
+                <div class="col-lg-4 col-sm-6 text-center" style="padding-bottom:15px;">
+                  <img class="img-circle img-responsive img-center" src="../src/kaio.jpg" alt="" style="width: 200px; height: 200px;">
+                  <h3>Kaio Pedroza</h3>                
+                  <h4>Aluno</h4>
+                  <button type="button" class="btn btn-success btn-xs">Ver Perfil</button>
+                </div>
+                
+                <div class="col-lg-4 col-sm-6 text-center" style="padding-bottom:15px;">
+                  <img class="img-circle img-responsive img-center" src="../src/jr.jpg" alt="" style="width: 200px; height: 200px;">
+                  <h3>Geraldo Júnior</h3>
+                  <h4>Aluno Pós-Graduação</h4>
+                  <button type="button" class="btn btn-success btn-xs">Ver Perfil</button>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- /#wrapper -->
 
