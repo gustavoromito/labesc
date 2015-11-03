@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dca401da-62fc-43ec-baa9-dc2f532c299f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/databaseManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/dashboard.php" afterPath="$PROJECT_DIR$/pages/dashboard.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/index.php" afterPath="$PROJECT_DIR$/pages/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/publications.php" afterPath="$PROJECT_DIR$/pages/publications.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/team.php" afterPath="$PROJECT_DIR$/pages/team.php" />
-    </list>
+    <list default="true" id="dca401da-62fc-43ec-baa9-dc2f532c299f" name="Default" comment="" />
     <ignored path="labesc.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -34,10 +28,10 @@
             <state vertical-scroll-proportion="-2.5">
               <caret line="4" column="16" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding>
-                <marker date="1444828355000" expanded="true" signature="125:139" placeholder="..." />
-                <marker date="1444828355000" expanded="true" signature="1115:1437" placeholder="..." />
-                <marker date="1444828355000" expanded="true" signature="1160:1392" placeholder="..." />
-                <marker date="1444828355000" expanded="true" signature="1481:1532" placeholder="..." />
+                <marker date="1444915056000" expanded="true" signature="125:139" placeholder="..." />
+                <marker date="1444915056000" expanded="true" signature="1115:1437" placeholder="..." />
+                <marker date="1444915056000" expanded="true" signature="1160:1392" placeholder="..." />
+                <marker date="1444915056000" expanded="true" signature="1481:1532" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -59,7 +53,7 @@
             <state vertical-scroll-proportion="-15.208333">
               <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
               <folding>
-                <marker date="1444829218000" expanded="true" signature="762:783" placeholder="SELECT * FRO..Usuario..." />
+                <marker date="1444915056000" expanded="true" signature="762:783" placeholder="SELECT * FRO..Usuario..." />
               </folding>
             </state>
           </provider>
@@ -68,8 +62,8 @@
       <file leaf-file-name="team.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/team.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0882353">
-              <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.1764706">
+              <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -99,6 +93,9 @@
   </component>
   <component name="NamedScopeManager">
     <order />
+  </component>
+  <component name="PhpServers">
+    <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
@@ -219,6 +216,9 @@
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="dca401da-62fc-43ec-baa9-dc2f532c299f" name="Default" comment="" />
@@ -252,6 +252,14 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
@@ -281,9 +289,9 @@
         <state vertical-scroll-proportion="0.2647059">
           <caret line="12" column="58" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
           <folding>
-            <marker date="1444828109000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1444828109000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1444828109000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1444915056000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1444915056000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1444915056000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -293,10 +301,10 @@
         <state vertical-scroll-proportion="-2.5">
           <caret line="4" column="16" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
-            <marker date="1444828355000" expanded="true" signature="125:139" placeholder="..." />
-            <marker date="1444828355000" expanded="true" signature="1115:1437" placeholder="..." />
-            <marker date="1444828355000" expanded="true" signature="1160:1392" placeholder="..." />
-            <marker date="1444828355000" expanded="true" signature="1481:1532" placeholder="..." />
+            <marker date="1444915056000" expanded="true" signature="125:139" placeholder="..." />
+            <marker date="1444915056000" expanded="true" signature="1115:1437" placeholder="..." />
+            <marker date="1444915056000" expanded="true" signature="1160:1392" placeholder="..." />
+            <marker date="1444915056000" expanded="true" signature="1481:1532" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -314,15 +322,15 @@
         <state vertical-scroll-proportion="-15.208333">
           <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
           <folding>
-            <marker date="1444829218000" expanded="true" signature="762:783" placeholder="SELECT * FRO..Usuario..." />
+            <marker date="1444915056000" expanded="true" signature="762:783" placeholder="SELECT * FRO..Usuario..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/team.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0882353">
-          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.1764706">
+          <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
           <folding />
         </state>
       </provider>
