@@ -7,14 +7,14 @@
     $(document).ready(function() {
         $("#cancelBtn").click(function (){
             console.log("ENTROU");
-            $("#list-sequenciamento").show();
-            $("#new-sequenciamento").hide();
+            $("#list-sequenciamento").show("fast");
+            $("#new-sequenciamento").hide("fast");
         });
 
         $("#newBtn").click(function (){
             console.log("AQUI");
-            $("#list-sequenciamento").hide();
-            $("#new-sequenciamento").show();
+            $("#list-sequenciamento").hide("fast");
+            $("#new-sequenciamento").show("fast");
         });
     });
 </script>
@@ -84,7 +84,7 @@
                 <div class="row">
                     <button type="button" class="btn btn-outline btn-danger" id="cancelBtn">Cancelar</button>
                     <div class="col-lg-12">
-                        <h1 class="page-header">Novo Sequenciamento</h1>
+                        <h1 class="page-header" style="margin-top: 20px;">Novo Sequenciamento</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -114,11 +114,12 @@
                                     <div class="form-group">
                                         <label>Pesquisador</label>
                                         <select class="form-control">
-                                            <option>Pesquisador 1</option>
-                                            <option>Pesquisador 2</option>
-                                            <option>Pesquisador 3</option>
-                                            <option>Pesquisador 4</option>
-                                            <option>Pesquisador 5</option>
+                                            <?php
+                                            $result = getAllUsers();
+                                            while ($row = $result->fetch_assoc()) {
+                                                echo '<option>' . $row['nome'] . '</option>';
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -126,16 +127,25 @@
                                         <textarea class="form-control" rows="3"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label>Eletroferogramas</label>
-                                        <input type="file">
+                                        <form action="upload.php" method="post" enctype="multipart/form-data">
+                                            <label>Eletroferogramas:</label>
+                                            <input type="file" name="fileToUpload" id="fileToUpload">
+                                            <input type="submit" value="Submeter Arquivo" name="submit">
+                                        </form>
                                     </div>
                                     <div class="form-group">
-                                        <label>Nucleotídicas</label>
-                                        <input type="file">
+                                        <form action="upload.php" method="post" enctype="multipart/form-data">
+                                            <label>Nucleotídicas:</label>
+                                            <input type="file" name="fileToUpload" id="fileToUpload">
+                                            <input type="submit" value="Submeter Arquivo" name="submit">
+                                        </form>
                                     </div>
                                     <div class="form-group">
-                                        <label>Mapa da Placa</label>
-                                        <input type="file">
+                                        <form action="upload.php" method="post" enctype="multipart/form-data">
+                                            <label>Mapa da Placa:</label>
+                                            <input type="file" name="fileToUpload" id="fileToUpload">
+                                            <input type="submit" value="Submeter Arquivo" name="submit">
+                                        </form>
                                     </div>
                                     <button type="submit" class="btn btn-default">Enviar</button>
                                     <button type="reset" class="btn btn-default">Cancelar</button>

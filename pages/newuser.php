@@ -1,46 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<?php include("../php/head.php"); ?>
+<?php include("../php/databaseManager.php"); ?>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<script>
+    $(document).ready(function() {
+        function post(url, data, success, fail)
+        {
+            $.post( url, data, function(datar) {
+                typeof success === 'function' && success(datar);
+            })
+                .done(function() {
+                    //alert( "second success" );
+                })
+                .fail(function(error) {
+                    typeof fail === 'function' && fail(error);
+                })
+                .always(function() {
+                    //alert( "finished" );
+                });
+        }
 
-    <title>Novo Usuário</title>
+        $("#create-new-user").click(function() {
+            var first_name = $("#firstname").val();
+            var last_name = $("#lastname").val();
+            var email = $("#email").val();
+            var password = $("#password").val();
+            var role_id = $('option:selected', $("#selectRole")).attr('roleid');
+            var birthDate = $("#birthDate").val();
+            var lattes = $("#lattes").val();
 
-    <!-- Bootstrap Core CSS -->
-    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+            var data = 'first_name='+ first_name;
+            data += '&last_name='+ last_name;
+            data += '&email='+ email;
+            data += '&password='+ password;
+            data += '&role_id='+ role_id;
+            data += '&birthDate='+ birthDate;
+            data += '&lattes='+ lattes;
 
-    <!-- MetisMenu CSS -->
-    <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+            post("../php/create-user.php", data, function(response) {
+                var obj = convertDataToJSON(response);
+                alert(obj.message);
+                if (obj.status == "200") {
+                    window.location.href = "team.php";
+                }
+            });
+        });
 
-    <!-- Timeline CSS -->
-    <link href="../dist/css/timeline.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="../dist/css/round-about.css" rel="stylesheet">
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
-
-    <!-- Morris Charts CSS -->
-    <link href="../bower_components/morrisjs/morris.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
+        function convertDataToJSON(data) {
+            try{
+                var obj = jQuery.parseJSON(data);
+                return obj;
+            }
+            catch(e){
+                var obj = {
+                    status: 0,
+                    message: e.message
+                };
+                return obj;
+            }
+        }
+    });
+</script>
 <body>
-
     <div id="wrapper">
       <!-- include navigation.php -->
       <?php include("../php/navigation.php"); ?>
@@ -51,19 +74,27 @@
                 </div>
             </div>
             <div class="col-lg-6 text-left" style="padding-bottom:15px;">
-                    <label>Nome:</label>
-                    <input class="form-control" placeholder="Nome Completo">
+                    <label>Primeiro:</label>
+                    <input class="form-control" id="firstname" placeholder="Primeiro Nome">
+                    <label>Sobrenome:</label>
+                    <input class="form-control" id="lastname" placeholder="Sobrenome">
                     <label>Função:</label>
-                    <select class="form-control">
-                        <option>Professor</option>
-                        <option>Pesquisador Visitante</option>
-                        <option>Aluno Pós-Graduação</option>
-                        <option>Aluno Graduação</option>
+                    <select class="form-control" id="selectRole">
+                        <?php
+                        $result = getAllRoles();
+                        while ($row = $result->fetch_assoc()) {
+                            echo '<option roleid="'. $row['id'] . '">' . $row['descricao'] . '</option>';
+                        }
+                        ?>
                     </select>
                     <label>E-mail:</label>
-                    <input class="form-control" placeholder="E-mail">
+                    <input class="form-control" id="email" placeholder="E-mail">
+                    <label>Senha:</label>
+                    <input class="form-control" type="password" id="password" placeholder="">
+                    <label>Data de Nascimento:</label>
+                    <input class="form-control" id="birthDate" type="date" placeholder="">
                     <label>Lattes:</label>
-                    <input class="form-control" placeholder="Lattes">
+                    <input class="form-control" id="lattes" placeholder="Lattes">
                     <label>Área de Pesquisa:</label>
                     <textarea class="form-control" rows="3" placeholder="Clique para inserir uma descrição sobre a área de atuação"></textarea>
             </div>
@@ -71,8 +102,8 @@
                 <img class="img-circle img-responsive img-center" src="../src/no-img.jpg" style="width: 200px; height: 200px; margin-bottom: 10px;">
                 <button type="button" class="btn btn-default">Alterar Foto</button>
             </div>
-            <div class="row text-center">
-                <button type="submit" class="btn btn-default">Salvar</button>
+            <div class="row text-center" style="padding-bottom: 20px;">
+                <button type="submit" class="btn btn-default" id="create-new-user">Criar Usuário</button>
             </div>
         </div>
     </div>
