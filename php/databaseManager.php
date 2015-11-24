@@ -22,10 +22,10 @@ $dbname = "labesc";
 
 
 function getAllUsers() {
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "labesc";
+    global $servername;
+    global $username;
+    global $password;
+    global $dbname;
 
 // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -41,11 +41,31 @@ function getAllUsers() {
     return $result;
 }
 
+function getAllPublications() {
+    global $servername;
+    global $username;
+    global $password;
+    global $dbname;
+
+// Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    $sql = "SELECT * FROM Publicacao";
+    $result = $conn->query($sql);
+
+    $conn->close();
+    return $result;
+}
+
 function getAllRoles() {
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "labesc";
+    global $servername;
+    global $username;
+    global $password;
+    global $dbname;
 
 // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -62,11 +82,10 @@ function getAllRoles() {
 }
 
 function getRoleName($role_id) {
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "labesc";
-
+    global $servername;
+    global $username;
+    global $password;
+    global $dbname;
 // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -88,10 +107,10 @@ function getRoleName($role_id) {
 
 function getUserDetails($user_id)
 {
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "labesc";
+    global $servername;
+    global $username;
+    global $password;
+    global $dbname;
 
 // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);

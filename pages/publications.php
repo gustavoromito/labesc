@@ -2,6 +2,7 @@
 <html lang="en">
 
 <?php include("../php/head.php"); ?>
+<?php include("../php/databaseManager.php"); ?>
 
 <body>
 
@@ -12,21 +13,29 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Publicações</h1>
+                    <h1 class="page-header" style="float: left; width: 80%;">Publicações</h1>
+                    <button type="button" style="margin: 40px 0 20px; width: 15%; float: right;" class="btn btn-outline btn-primary" id="newBtn">Nova Publicação</button>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-
-            <div class="col-lg-12">
-                <div class="panel">
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere sem eu urna volutpat rutrum. Integer vel dolor consequat, placerat odio at, elementum nunc. Vestibulum lobortis metus sed quam vulputate, a gravida felis scelerisque. Fusce rutrum dolor ac lacinia convallis. Nullam et elit imperdiet, posuere nisi elementum, cursus lacus. Maecenas in purus ornare, scelerisque ante vel, bibendum turpis. Etiam dictum tempor nibh eu faucibus. Maecenas nec massa sed tortor faucibus accumsan. Nunc nec vehicula lacus, a laoreet mauris. Vivamus id sollicitudin massa. Nam congue turpis at sapien fringilla, id faucibus magna convallis.</p>
-                        <p>Etiam ullamcorper et eros non condimentum. Nam consequat commodo tincidunt. Ut efficitur nibh tellus, dignissim mollis diam tincidunt a. Aenean consequat bibendum sodales. Phasellus gravida ac tellus non ultrices. Quisque sed nunc vel nisl interdum elementum ac et diam. Nulla blandit non metus a facilisis. Curabitur at diam hendrerit, facilisis ex varius, aliquet sapien. Vivamus libero orci, dictum sit amet nisi vel, tincidunt imperdiet ante. Duis laoreet tortor a nibh eleifend sodales. Praesent quis tellus nec tortor lacinia finibus. Phasellus id efficitur eros.</p>
-                        <p>Curabitur orci metus, condimentum vitae venenatis posuere, porta id nibh. Donec non arcu id sapien mollis cursus eget sed justo. Curabitur nec dignissim eros. Suspendisse potenti. Integer sed odio et urna vestibulum gravida. Quisque blandit elementum augue quis sodales. Ut ornare lectus in dolor consequat rhoncus. Nam vehicula enim eget nibh posuere condimentum.</p>
-                        <p>Morbi quis auctor purus. Pellentesque sagittis arcu eget lorem laoreet ornare in sed enim. Nunc eget volutpat odio. Vestibulum erat massa, finibus eget dictum vitae, aliquet sed erat. Pellentesque volutpat mollis turpis, vitae sollicitudin mi vehicula eu. In fringilla laoreet magna et tempor. Ut ornare ex leo, id scelerisque sem dictum a.</p>
-                        <p>Sed varius nec nisl quis eleifend. Aliquam sapien felis, lacinia eu augue vitae, feugiat lobortis ante. Aenean ultricies ipsum eu molestie congue. Donec ac rhoncus sapien. Aliquam efficitur orci ac augue lobortis placerat. Pellentesque non imperdiet sem. Vivamus in massa consequat, pretium augue non, gravida nisl. Nam dignissim, erat ac commodo faucibus, sem leo tincidunt mi, viverra convallis erat orci fringilla tortor. Sed sed diam sed dolor tempor viverra id vel orci. Praesent sit amet ex id orci gravida condimentum. Fusce maximus efficitur neque, quis elementum nisi aliquam tristique. Proin placerat mi eu purus accumsan lobortis.</p>
-                    </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                <?php
+                $result = getAllPublications();
+                while ($row = $result->fetch_assoc()) {
+                    echo '<div style="background: rgba(211, 211, 211, 0.37); border-radius: 10px;">
+                        <div style="padding: 10px;">
+                            <h3 style="color: #3c763d; display: inline;">'. $row['title']. '</h3>
+                            <h4 style="margin: 0px;color: #367CB8; display: inline; float: right;">DOI: ' . $row['DOI'] . '</h4>
+                            <h4 style="color: #068E06;">Responsável: ' . getUserDetails($row['user_id'])['nome'] . '</h4>
+                            <h5 style="color: #999;">Publicado em: ' . date("d/m/Y", strtotime($row['data'])) . '</h5>
+                        </div>
+                    </div>';
+                }
+                ?>
                 </div>
+                <!-- /.col-lg-12 -->
             </div>
         </div>
         <!-- /#page-wrapper -->
