@@ -13,7 +13,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header" style="float: left; width: 80%;">Equipe</h1>
+                    <h1 class="page-header" style="float: left; width: 80%; text-align: cnter;">Coleções</h1>
                     <a href="newuser.php">
                         <button type="button" style="margin: 40px 0 20px; width: 15%; float: right;" class="btn btn-outline btn-primary" id="newBtn">Novo Usuário</button>
                     </a>
@@ -22,55 +22,37 @@
             <div class="row">
               <!-- o container sera montado atraves de um template de forma dinamica-->
               <!-- adicionar um crop para o tamanho da imagem-->
-                <?php
-                $result = getAllUsers();
-                while ($row = $result->fetch_assoc()) {
-                    echo '<div class="col-lg-4 col-sm-6 text-center" style="padding-top: 15px; padding-right: 0px; padding-left: 0px; padding-bottom: 15px; background: #ededed; border-radius: 10px; margin: 10px; max-width: 30%;">
-                            <img class="img-circle img-responsive img-center" src="../src/romito.jpg" alt="" style="margin: auto; width: 200px; height: 200px;">
-                            <h3 style="margin: auto; max-width: 300px; height: 52px;">' . $row['nome'] . '</h3>
-                            <h4 style="color: #808080;">'. getRoleName($row['role_id']) . '</h4>
-                            <a href="profile.php?user_id=' . $row['id'] . '">
-                                <button type="button" class="btn btn-success btn-xs user-details" userid="'. $row['id'] .'">Ver Perfil</button>
-                            </a>
-                        </div>';
-                } ?>
-
-<!--                -->
-<!--                <div class="col-lg-4 col-sm-6 text-center" style="padding-bottom:15px;">-->
-<!--                  <img class="img-circle img-responsive img-center" src="../src/loren.jpg" alt="" style="width: 200px; height: 200px;">-->
-<!--                  <h3>Mateus Lourenção</h3>-->
-<!--                  <h4>Professor Doutor</h4>-->
-<!--                  <button type="button" class="btn btn-success btn-xs">Ver Perfil</button>-->
-<!--                </div>-->
-<!--                -->
-<!--                <div class="col-lg-4 col-sm-6 text-center" style="padding-bottom:15px;">-->
-<!--                  <img class="img-circle img-responsive img-center" src="../src/paladia.jpg" alt="" style="width: 200px; height: 200px;">-->
-<!--                  <h3>Leonardo Paladia</h3>-->
-<!--                  <h4>Professor</h4>-->
-<!--                  <button type="button" class="btn btn-success btn-xs">Ver Perfil</button>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="col-lg-4 col-sm-6 text-center" style="padding-bottom:15px;">-->
-<!--                  <img class="img-circle img-responsive img-center" src="../src/pavanelli.jpg" alt="" style="width: 200px; height: 200px;">-->
-<!--                  <h3>Matheus Pavanelli</h3>-->
-<!--                  <h4>Professor Visitante</h4>-->
-<!--                  <button type="button" class="btn btn-success btn-xs">Ver Perfil</button>-->
-<!--                </div>-->
-<!--                -->
-<!--                <div class="col-lg-4 col-sm-6 text-center" style="padding-bottom:15px;">-->
-<!--                  <img class="img-circle img-responsive img-center" src="../src/kaio.jpg" alt="" style="width: 200px; height: 200px;">-->
-<!--                  <h3>Kaio Pedroza</h3>                -->
-<!--                  <h4>Aluno</h4>-->
-<!--                  <button type="button" class="btn btn-success btn-xs">Ver Perfil</button>-->
-<!--                </div>-->
-<!--                -->
-<!--                <div class="col-lg-4 col-sm-6 text-center" style="padding-bottom:15px;">-->
-<!--                  <img class="img-circle img-responsive img-center" src="../src/jr.jpg" alt="" style="width: 200px; height: 200px;">-->
-<!--                  <h3>Geraldo Júnior</h3>-->
-<!--                  <h4>Aluno Pós-Graduação</h4>-->
-<!--                  <button type="button" class="btn btn-success btn-xs">Ver Perfil</button>-->
-<!--                </div>-->
-
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Coleções
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align: center; width: 90px;">ID Coleção</th>
+                                            <th style="text-align: center;">Data de Inserção</th>
+                                            <th style="text-align: center;">Código SRMP</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="text-align: center;">1</td>
+                                            <td style="text-align: center;">12/07/1998</td>
+                                            <td style="text-align: center;">1467456</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
         </div>
     </div>
     <!-- /#wrapper -->
