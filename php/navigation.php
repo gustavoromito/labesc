@@ -57,7 +57,7 @@
                             <a href="publications.php"><i class="fa fa-table fa-fw"></i> Publicações</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i> Coleção SRMP</a>
+                            <a href="collection.php"><i class="fa fa-edit fa-fw"></i> Coleção SRMP</a>
                         </li>
                         <li>
                             <a href="dashboard.php"><i class="fa fa-wrench fa-fw"></i> Dashboard<span class="fa arrow"></span></a>
