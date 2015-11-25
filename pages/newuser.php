@@ -74,7 +74,7 @@
                 </div>
             </div>
             <div class="col-lg-6 text-left" style="padding-bottom:15px;">
-                    <label>Primeiro:</label>
+                    <label>Primeiro Nome:</label>
                     <input class="form-control" id="firstname" placeholder="Primeiro Nome">
                     <label>Sobrenome:</label>
                     <input class="form-control" id="lastname" placeholder="Sobrenome">

@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header" style="float: left; width: 80%;">Publicações</h1>
-                    <button type="button" style="margin: 40px 0 20px; width: 15%; float: right;" class="btn btn-outline btn-primary" id="newBtn">Nova Publicação</button>
+                    <a href="newpublication.php"><button type="button" style="margin: 40px 0 20px; width: 15%; float: right;" class="btn btn-outline btn-primary" id="newBtn">Nova Publicação</button></a>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -24,7 +24,7 @@
                 <?php
                 $result = getAllPublications();
                 while ($row = $result->fetch_assoc()) {
-                    echo '<div style="background: rgba(211, 211, 211, 0.37); border-radius: 10px;">
+                    echo '<div style="background: rgba(211, 211, 211, 0.37); border-radius: 10px; margin-bottom: 10px;">
                         <div style="padding: 10px;">
                             <h3 style="color: #3c763d; display: inline;">'. $row['title']. '</h3>
                             <h4 style="margin: 0px;color: #367CB8; display: inline; float: right;">DOI: ' . $row['DOI'] . '</h4>
