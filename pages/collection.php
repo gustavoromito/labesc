@@ -4,6 +4,55 @@
 <?php include("../php/head.php"); ?>
 <?php include("../php/databaseManager.php"); ?>
 
+<script>
+    $(document).ready(function(){
+        function post(url, data, success, fail)
+        {
+            $.post( url, data, function(datar) {
+                typeof success === 'function' && success(datar);
+            })
+                .done(function() {
+                    //alert( "second success" );
+                })
+                .fail(function(error) {
+                    typeof fail === 'function' && fail(error);
+                })
+                .always(function() {
+                    //alert( "finished" );
+                });
+        }
+
+        $('.remove-collection').click(function(){
+            var remove = $(this).attr('collection_id');
+
+            var data = 'id='+ remove;
+            post("../php/remove-collection.php", data, function(response) {
+                var obj = convertDataToJSON(response);
+                alert(obj.message);
+                if (obj.status == "200") {
+                    location.reload();
+                }
+            });
+
+        });
+
+        function convertDataToJSON(data) {
+            try{
+                var obj = jQuery.parseJSON(data);
+                return obj;
+            }
+            catch(e){
+                var obj = {
+                    status: 0,
+                    message: e.message
+                };
+                return obj;
+            }
+        }
+
+
+    });
+</script>
 
 <body>
 
@@ -34,16 +83,25 @@
                                     <thead>
                                         <tr>
                                             <th style="text-align: center; width: 90px;">ID Coleção</th>
+                                            <th style="text-align: center;">Nome</th>
                                             <th style="text-align: center;">Data de Inserção</th>
                                             <th style="text-align: center;">Código SRMP</th>
+                                            <th style="text-align: center;"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td style="text-align: center;">1</td>
-                                            <td style="text-align: center;">12/07/1998</td>
-                                            <td style="text-align: center;">1467456</td>
-                                        </tr>
+                                        <?php 
+                                            $collections = getAllCollections();
+                                            while ($row = $collections->fetch_assoc()) {
+                                                echo '<tr>
+                                                        <td style="text-align: center;border-top: 0px solid #ddd;">'.$row['id'].'</td>
+                                                        <td style="text-align: center;border-top: 0px solid #ddd;">'.$row['nome'].'</td>
+                                                        <td style="text-align: center;border-top: 0px solid #ddd;">'.$row['data_coletado'].'</td>
+                                                        <td style="text-align: center;border-top: 0px solid #ddd;">'.$row['numero_smrp'].'</td>
+                                                        <td style="text-align: center;border-top: 0px solid #ddd;" collection_id="'. $row['id'] . '"class="glyphicon glyphicon-remove-circle remove-collection"></td>
+                                                    </tr>';
+                                            }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>
