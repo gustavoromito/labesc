@@ -160,4 +160,26 @@ function validatePassword($user_input, $hashPassword) {
     }
     return false;
 }
+
+
+function getAllCollections() {
+    global $servername;
+    global $username;
+    global $password;
+    global $dbname;
+
+// Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    $sql = "SELECT * FROM Animal";
+    $result = $conn->query($sql);
+
+    $conn->close();
+    return $result;
+}
+
 ?>
