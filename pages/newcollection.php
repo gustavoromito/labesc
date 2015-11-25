@@ -79,16 +79,10 @@
                     <label>Código SRMP:</label>
                     <input class="form-control" id="cod_srmp" placeholder="Código SRMP">
                     <label>Data:</label>
-                    <input class="form-control" id="dt_collection" placeholder="Data da Coleta">
+                    <input class="form-control" type="date" id="dt_collection" placeholder="Data da Coleta">
                     <div class="row text-center" style="padding-bottom: 20px; margin-top: 10px;">
                         <button type="submit" class="btn btn-default" id="create-new-user">Salvar</button>
                     </div>
-
-                    <?php
-                        jQuery(function($){
-                            $('#dt_collection').mask("dd/mm/yyyy");
-                        });
-                    ?>
             </div>
             
         </div>
@@ -97,7 +91,6 @@
 
     <!-- jQuery -->
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="../mask_plugin/jquery.mask.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
