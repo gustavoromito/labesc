@@ -6,6 +6,7 @@
  * Time: 21:39
  */
 require('databaseManager.php');
+require('hashing.php');
 
 $first_name = $_POST["first_name"];
 $last_name = $_POST["last_name"];
@@ -17,7 +18,7 @@ $email = $_POST["email"];
 $password = $_POST["password"];
 $lattes = $_POST["lattes"];
 
-$hashPassword = hashPassword($password);
+$hashPassword = create_hash(stripslashes($password));
 
 $serverpassword = '';
 $mysqli = new mysqli($servername, $username, $serverpassword, $dbname);
