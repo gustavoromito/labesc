@@ -1,4 +1,5 @@
 <!-- Navigation -->
+<?include("../php/authenticate.php");?>
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -59,18 +60,13 @@
                         <li>
                             <a href="collection.php"><i class="fa fa-edit fa-fw"></i> Coleção SRMP</a>
                         </li>
-                        <li>
-                            <a href="dashboard.php"><i class="fa fa-wrench fa-fw"></i> Dashboard<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="panels-wells.html">Opção 1</a>
-                                </li>
-                                <li>
-                                    <a href="buttons.html">Opção 2</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+                        <?php
+                            if ($userIsLogged) {
+                                echo '<li>
+                                        <a href="dashboard.php"><i class="fa fa-wrench fa-fw"></i> Dashboard</a>
+                                    </li>';
+                            }
+                        ?>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

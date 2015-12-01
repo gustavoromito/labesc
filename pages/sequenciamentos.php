@@ -14,6 +14,7 @@
             $("#list-sequenciamento").hide("fast");
             $("#new-sequenciamento").show("fast");
         });
+
         function post(url, data, success, fail)
         {
             $.post( url, data, function(datar) {
@@ -31,22 +32,8 @@
         }
 
         $("#create-sequenciamento").click(function() {
-        var first_name = $("#firstname").val();
-//        var last_name = $("#lastname").val();
-//        var email = $("#email").val();
-//        var password = $("#password").val();
-//        var role_id = $('option:selected', $("#selectRole")).attr('roleid');
-//        var birthDate = $("#birthDate").val();
-//        var lattes = $("#lattes").val();
-
-        var data = 'first_name='+ first_name;
-//        data += '&last_name='+ last_name;
-//        data += '&email='+ email;
-//        data += '&password='+ password;
-//        data += '&role_id='+ role_id;
-//        data += '&birthDate='+ birthDate;
-//        data += '&lattes='+ lattes;
-
+            var first_name = $("#firstname").val();
+            var data = 'first_name='+ first_name;
             post("../php/create-sequenciamento.php", data, function(response) {
                 alert(response);
                 console.log(response);
@@ -168,10 +155,10 @@
                                         <label>Pesquisador</label>
                                         <select class="form-control">
                                             <?php
-                                            $result = getAllUsers();
-                                            while ($row = $result->fetch_assoc()) {
-                                                echo '<option>' . $row['nome'] . '</option>';
-                                            }
+//                                            $result = getAllUsers();
+//                                            while ($row = $result->fetch_assoc()) {
+//                                                echo '<option>' . $row['nome'] . '</option>';
+//                                            }
                                             ?>
                                         </select>
                                     </div>
@@ -181,23 +168,19 @@
                                     </div>
                                     <div id="fileUploader">Upload</div>
                                     <div class="form-group">
-                                        <form action="" method="post" enctype="multipart/form-data">
-                                            <label>Eletroferogramas:</label>
-                                            <input type="file" name="uploadEletro" id="uploadEletro">
-                                        </form>
+                                        <label>Eletroferogramas:</label>
+                                        <input type="file" id="uploadEletro" name="files[]" data-url="../jQuery-File-Upload-9.11.2/server/php">
                                     </div>
                                     <div class="form-group">
                                         <form action="" method="post" enctype="multipart/form-data">
                                             <label>Nucleotídicas:</label>
-                                            <input type="file" name="fileToUpload" id="fileToUpload">
-                                            <input type="submit" value="Submeter Arquivo" name="submit">
+                                            <input type="file" name="uploadNucleo" id="fileToUpload">
                                         </form>
                                     </div>
                                     <div class="form-group">
                                         <form action="" method="post" enctype="multipart/form-data">
                                             <label>Mapa da Placa:</label>
-                                            <input type="file" name="fileToUpload" id="fileToUpload">
-                                            <input type="submit" value="Submeter Arquivo" name="submit">
+                                            <input type="file" name="uploadMapa" id="fileToUpload">
                                         </form>
                                     </div>
                                     <button type="submit" id="create-sequenciamento" class="btn btn-default">Enviar</button>
@@ -232,11 +215,38 @@
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
 
-    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+
+
+    <script src="../jQuery-File-Upload-9.11.2/js/vendor/jquery.ui.widget.js"></script>
+    <script src="../jQuery-File-Upload-9.11.2/js/jquery.iframe-transport.js"></script>
+    <script src="../jQuery-File-Upload-9.11.2/js/jquery.fileupload.js"></script>
+
     <script>
     $(document).ready(function() {
         $('#dataTables-example').DataTable({
                 responsive: true
+        });
+
+        $('#uploadEletro').fileupload({
+            maxFileSize: 100000000,
+            acceptFileTypes: /(\.|\/)(pdf|xlsx)$/i,
+            singleFileUploads: true,
+            maxNumberOfFiles: 1,
+            dataType: 'json',
+            done: function (e, data) {
+                console.log(JSON.stringify(data, null, 2));
+                $.each(data.result.files, function (index, file) {
+                    console.log(file.name);
+//                    $('<p/>').text(file.name).appendTo(document.body);
+                });
+            },
+            progressall: function (e, data) {
+                var progress = parseInt(data.loaded / data.total * 100, 10);
+                console.log(progress + "%");
+            },
+            fail: function(e, data) {
+                console.log('Fail!');
+            }
         });
     });
     </script>

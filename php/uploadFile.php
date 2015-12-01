@@ -18,21 +18,18 @@ function checkDirectory($file_name) {
 
 }
 
-function uploadNewFile($FILES, $name) {
-    global $target_dir;
-    if ($FILES[$name]["error"] > 0)
-    {
-        return returnJSON("100", "Error: " . $FILES[$name]["error"], array());
+if ($_FILES[$name]["error"] > 0)
+{
+    return returnJSON("100", "Error: " . $_FILES[$name]["error"], array());
+} else {
+    $Random_Number      = rand(0, 99999);
+    $file_name = basename($_FILES[$name]["name"]) . "_" . $Random_Number;
+    $target_file = $target_dir . "/" . $file_name;
+    checkDirectory($file_name);
+    if (move_uploaded_file($_FILES[$name]["tmp_name"], $target_file)) {
+        return  "<p id='sequenciamento'>" . $target_dir . $_FILES[$name]["name"] . "</p>";
     } else {
-        $Random_Number      = rand(0, 99999);
-        $file_name = basename($FILES[$name]["name"]) . "_" . $Random_Number;
-        $target_file = $target_dir . "/" . $file_name;
-        checkDirectory($file_name);
-        if (move_uploaded_file($FILES[$name]["tmp_name"], $target_file)) {
-            return  "<p id='sequenciamento'>" . $target_dir . $FILES[$name]["name"] . "</p>";
-        } else {
-            return returnJSON("100", "Não foi possível submeter seu arquivo.", array());
-        }
+        return returnJSON("100", "Não foi possível submeter seu arquivo.", array());
     }
 }
 ?>
