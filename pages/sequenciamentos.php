@@ -5,23 +5,12 @@
 <?php include("../php/databaseManager.php"); ?>
 <script>
     $(document).ready(function() {
-        $("#fileUploader").uploadFile({
-            url:"../jquery-upload-file-master/php/upload.php",
-            multiple:false,
-            dragDrop:false,
-            maxFileCount:1,
-            fileName:"testField",
-            uploadStr:"Selecionar..."
-        });
-
         $("#cancelBtn").click(function (){
-            console.log("ENTROU");
             $("#list-sequenciamento").show("fast");
             $("#new-sequenciamento").hide("fast");
         });
 
         $("#newBtn").click(function (){
-            console.log("AQUI");
             $("#list-sequenciamento").hide("fast");
             $("#new-sequenciamento").show("fast");
         });
@@ -43,27 +32,27 @@
 
         $("#create-sequenciamento").click(function() {
         var first_name = $("#firstname").val();
-        var last_name = $("#lastname").val();
-        var email = $("#email").val();
-        var password = $("#password").val();
-        var role_id = $('option:selected', $("#selectRole")).attr('roleid');
-        var birthDate = $("#birthDate").val();
-        var lattes = $("#lattes").val();
+//        var last_name = $("#lastname").val();
+//        var email = $("#email").val();
+//        var password = $("#password").val();
+//        var role_id = $('option:selected', $("#selectRole")).attr('roleid');
+//        var birthDate = $("#birthDate").val();
+//        var lattes = $("#lattes").val();
 
         var data = 'first_name='+ first_name;
-        data += '&last_name='+ last_name;
-        data += '&email='+ email;
-        data += '&password='+ password;
-        data += '&role_id='+ role_id;
-        data += '&birthDate='+ birthDate;
-        data += '&lattes='+ lattes;
-
-            console.log("ENTROU AQUI");
+//        data += '&last_name='+ last_name;
+//        data += '&email='+ email;
+//        data += '&password='+ password;
+//        data += '&role_id='+ role_id;
+//        data += '&birthDate='+ birthDate;
+//        data += '&lattes='+ lattes;
 
             post("../php/create-sequenciamento.php", data, function(response) {
                 alert(response);
+                console.log(response);
                 var obj = convertDataToJSON(response);
                 alert(obj.message);
+
             });
         });
 
@@ -192,20 +181,20 @@
                                     </div>
                                     <div id="fileUploader">Upload</div>
                                     <div class="form-group">
-                                        <form action="../php/uploadFile.php" method="post" enctype="multipart/form-data">
+                                        <form action="" method="post" enctype="multipart/form-data">
                                             <label>Eletroferogramas:</label>
                                             <input type="file" name="uploadEletro" id="uploadEletro">
                                         </form>
                                     </div>
                                     <div class="form-group">
-                                        <form action="upload.php" method="post" enctype="multipart/form-data">
+                                        <form action="" method="post" enctype="multipart/form-data">
                                             <label>Nucleotídicas:</label>
                                             <input type="file" name="fileToUpload" id="fileToUpload">
                                             <input type="submit" value="Submeter Arquivo" name="submit">
                                         </form>
                                     </div>
                                     <div class="form-group">
-                                        <form action="upload.php" method="post" enctype="multipart/form-data">
+                                        <form action="" method="post" enctype="multipart/form-data">
                                             <label>Mapa da Placa:</label>
                                             <input type="file" name="fileToUpload" id="fileToUpload">
                                             <input type="submit" value="Submeter Arquivo" name="submit">

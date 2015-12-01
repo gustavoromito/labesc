@@ -9,5 +9,5 @@ include('uploadFile.php');
 include("databaseManager.php");
 
 $upload_return = uploadNewFile($_FILES, "uploadEletro");
-
-echo returnJSON("200", $upload_return, array());
+echo $upload_return;
+?>
