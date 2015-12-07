@@ -63,8 +63,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header" style="float: left; width: 80%; text-align: cnter;">Coleções</h1>
-                    <a href="newuser.php">
-                        <button type="button" style="margin: 40px 0 20px; width: 15%; float: right;" class="btn btn-outline btn-primary" id="newBtn">Novo Usuário</button>
+                    <a href="newcollection.php">
+                        <button type="button" style="margin: 40px 0 20px; width: 15%; float: right;" class="btn btn-outline btn-primary" id="newBtn">Nova Coleta</button>
                     </a>
                 </div>
             </div>
