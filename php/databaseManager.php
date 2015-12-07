@@ -5,16 +5,10 @@
  * Date: 10/14/15
  * Time: 09:59
  */
-$servername = "143.106.62.41";
+$servername = "10.10.10.10";
 $username = "bolsoni";
 $password = "2qff3QUxw9";
 $dbname = "labcromoss";
-
-if (!function_exists('mysqli_init') && !extension_loaded('mysqli')) {
-    echo 'no mysqli :(';
-} else {
-    echo 'we gots it';
-}
 
 //// Create connection
 //$conn = new mysqli($servername, $username, $password, $dbname);
