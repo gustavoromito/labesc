@@ -4,7 +4,15 @@
 <?php include("../php/head.php"); ?>
 <?php include("../php/databaseManager.php"); ?>
 <script>
+    Date.prototype.toDateInputValue = (function() {
+        var local = new Date(this);
+        local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+        return local.toJSON().slice(0,10);
+    });
+
     $(document).ready(function() {
+        $('#seq_date').val(new Date().toDateInputValue());
+
         $("#cancelBtn").click(function (){
             $("#list-sequenciamento").show("fast");
             $("#new-sequenciamento").hide("fast");
@@ -31,15 +39,65 @@
                 });
         }
 
+        $('input[type=radio][name=optionsRadios]').change(function() {
+            if (this.value == 'unico') {
+                $("#multiplo_only").hide();
+            }
+            else if (this.value == 'multiplo') {
+                $("#multiplo_only").show();
+            }
+        });
+
         $("#create-sequenciamento").click(function() {
-            var first_name = $("#firstname").val();
-            var data = 'first_name='+ first_name;
-            post("../php/create-sequenciamento.php", data, function(response) {
-                alert(response);
+            var type = $('input[name=optionsRadios]:checked', '#select_seq_type').val();
+
+            var eletro_upload = $('#eletro_upload').contents().find('#link').attr("link");
+            var nucleo_upload = $('#nucleo_upload').contents().find('#link').attr("link");
+            var mapa_upload = $('#mapa_upload').contents().find('#link').attr("link");
+
+            var pesquisador_id = $('#pesquisador_select').find(":selected").val();
+            var animal_id = $('#animal_select').find(":selected").val();
+
+            var date = $('#seq_date').val();
+            var obs = $("#seq_obs").val();
+            var service = $("#seq_service").val();
+            var num_seq = $("#seq_num").val();
+
+            if (typeof eletro_upload === 'undefined') {
+                alert("Você não fez o upload do Eletroferograma.");
+                return;
+            }
+
+            if (typeof nucleo_upload === 'undefined') {
+                alert("Você não fez o upload da Sequência Nucleotídica");
+                return;
+            }
+
+            var params = 'type='+ type;
+            params += '&eletro_path=' +  eletro_upload;
+            params += '&nucleo_path=' + nucleo_upload;
+            params += '&pesquisador_id=' + pesquisador_id;
+            params += '&animal_id=' + animal_id;
+            params += '&date=' + date;
+            params += '&obs=' + obs;
+            params += '&service=' + service;
+
+            if (type == 'multiplo') { //sequenciamento multiplo
+                if (typeof mapa_upload === 'undefined') {
+                    alert("Você não fez o upload do Mapa da Placa.");
+                    return;
+                }
+                params += '&mapa_path=' + mapa_upload;
+                params += "&num_seq=" + num_seq;
+            }
+
+            post("../php/create-sequenciamento.php", params, function(response) {
                 console.log(response);
                 var obj = convertDataToJSON(response);
                 alert(obj.message);
-
+                if (obj.status == "200") {
+                    location.reload();
+                }
             });
         });
 
@@ -56,6 +114,8 @@
                 return obj;
             }
         }
+
+
     });
 </script>
 <body>
@@ -78,36 +138,89 @@
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Lista de todos Sequenciamentos do seu acesso
+                                Lista de todos Sequenciamentos Únicos do seu acesso
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
                                 <div class="dataTable_wrapper">
-                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <table class="table table-striped table-bordered table-hover" id="dataTables-unico">
                                         <thead>
-                                            <tr>
-                                                <th>Data</th>
-                                                <th>Descrição</th>
-                                                <th>Pesquisador</th>
-                                            </tr>
+                                        <tr>
+                                            <th>Data</th>
+                                            <th>Animal</th>
+                                            <th>Pesquisador</th>
+                                            <th>Serviço Utilizado</th>
+                                            <th>Observações</th>
+                                            <th>Eletroferograma</th>
+                                            <th>Nucleotidicas</th>
+                                        </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class="even gradeC">
-                                                <td>12/12/1994</td>
-                                                <td>Sequenciamento Sapo</td>
-                                                <td>Mateus Loren</td>
-                                            </tr>
-                                            <tr class="odd gradeA">
-                                                <td>12/12/1994</td>
-                                                <td>Sequenciamento Sapo</td>
-                                                <td>Gustavo Romito</td>
-                                            </tr>
-                                            <tr class="even gradeA">
-                                                <td>12/12/1994</td>
-                                                <td>Sequenciamento Sapo</td>
-                                                <td>Leonardo Paladia</td>
-                                            </tr>
+                                        <?php
+                                        $result = getAllUniqueSequenciamentos();
+                                        while ($row = $result->fetch_assoc()) {
+                                            echo '<tr class="">
+                                                        <td>' . $row['data']  .'</td>
+                                                        <td>' . $row['animal_id'] .'</td>
+                                                        <td>' . $row['pesquisador_id'] .'</td>
+                                                        <td>' . $row['servico_utilizado'] .'</td>
+                                                        <td>' . $row['observacoes'] .'</td>
+                                                        <td><a class="glyphicon glyphicon-file" href="' . $row['eletroferograma'] .'" target="_blank"></a></td>
+                                                        <td><a class="glyphicon glyphicon-file" href="' . $row['nucleotidicas'] .'" target="_blank"></a></td>
+                                                      </tr>';
+                                        }
+                                        ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
 
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Lista de todos Sequenciamentos Múltiplos do seu acesso
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="dataTable_wrapper">
+                                    <table class="table table-striped table-bordered table-hover" id="dataTables-multiplo">
+                                        <thead>
+                                        <tr>
+                                            <th>Data</th>
+                                            <th>Animal</th>
+                                            <th>Pesquisador</th>
+                                            <th>Serviço Utilizado</th>
+                                            <th>Observações</th>
+                                            <th>Eletroferograma</th>
+                                            <th>Nucleotidicas</th>
+                                            <th>Mapa da Placa</th>
+                                            <th>Numeo de Sequencias</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php
+                                            $result = getAllMultiSequenciamentos();
+                                            while ($row = $result->fetch_assoc()) {
+                                                echo '<tr class="">
+                                                        <td>' . $row['data']  .'</td>
+                                                        <td>' . $row['animal_id'] .'</td>
+                                                        <td>' . $row['pesquisador_id'] .'</td>
+                                                        <td>' . $row['servico_utilizado'] .'</td>
+                                                        <td>' . $row['observacoes'] .'</td>
+                                                        <td><a class="glyphicon glyphicon-file" href="' . $row['eletroferograma'] .'" target="_blank"></a></td>
+                                                        <td><a class="glyphicon glyphicon-file" href="' . $row['nucleotidicas'] .'" target="_blank"></a></td>
+                                                        <td><a class="glyphicon glyphicon-file" href="' . $row['mapa_placa'] .'" target="_blank"></a></td>
+                                                        <td>' . $row['numero_sequencias'] .'</td>
+                                                      </tr>';
+                                            }
+                                        ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -133,59 +246,79 @@
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <form role="form">
-                                    <div class="form-group">
+                                    <div class="form-group" id="select_seq_type">
                                         <label>Tipo Sequenciamento</label>
                                         <div class="radio" style="display: inline-block;">
                                             <label>
-                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">Único
+                                                <input type="radio" name="optionsRadios" id="radio_unico" value="unico" checked="">Único
                                             </label>
                                         </div>
                                         <div class="radio" style="display: inline-block;">
                                             <label>
-                                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Múltiplo
+                                                <input type="radio" name="optionsRadios" id="radio_multiplo" value="multiplo">Múltiplo
                                             </label>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label>Descrição</label>
-                                        <input class="form-control" placeholder="Exemplo: Sequenciamento Sapo na Lagoa">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Pesquisador</label>
-                                        <select class="form-control">
+                                        <label>Coleção</label>
+                                        <select class="form-control" id="animal_select">
                                             <?php
-//                                            $result = getAllUsers();
-//                                            while ($row = $result->fetch_assoc()) {
-//                                                echo '<option>' . $row['nome'] . '</option>';
-//                                            }
+                                            $result = getAllAnimals();
+                                            while ($row = $result->fetch_assoc()) {
+                                                echo '<option value="' . $row['id'] . '">' . $row['numero_smrp'] . " - " . $row['nome'] . '</option>';
+                                            }
                                             ?>
                                         </select>
                                     </div>
                                     <div class="form-group">
+                                        <label>Serviço Utilizado</label>
+                                        <input class="form-control" id="seq_service">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Pesquisador</label>
+                                        <select class="form-control" id="pesquisador_select">
+                                            <?php
+                                            $result = getAllUsers();
+                                            while ($row = $result->fetch_assoc()) {
+                                                echo '<option value="' . $row['id'] . '">' . $row['nome'] . '</option>';
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
                                         <label>Observações</label>
-                                        <textarea class="form-control" rows="3"></textarea>
+                                        <textarea class="form-control" rows="3" id="seq_obs"></textarea>
                                     </div>
-                                    <div id="fileUploader">Upload</div>
+
                                     <div class="form-group">
-                                        <label>Eletroferogramas:</label>
-                                        <input type="file" id="uploadEletro" name="files[]" data-url="../jQuery-File-Upload-9.11.2/server/php">
+                                        <label>Data do Sequenciamento</label>
+                                        <input class="form-control" id="seq_date" type="date">
                                     </div>
+
                                     <div class="form-group">
-                                        <form action="" method="post" enctype="multipart/form-data">
-                                            <label>Nucleotídicas:</label>
-                                            <input type="file" name="uploadNucleo" id="fileToUpload">
-                                        </form>
+                                        <label>Eletroferograma</label>
+                                        <iframe style="width:100%; height:130px; border:none; " id="eletro_upload" src="../uploader/"></iframe>
                                     </div>
+
                                     <div class="form-group">
-                                        <form action="" method="post" enctype="multipart/form-data">
-                                            <label>Mapa da Placa:</label>
-                                            <input type="file" name="uploadMapa" id="fileToUpload">
-                                        </form>
+                                        <label>Sequência Nucleotídica</label>
+                                        <iframe style="width:100%; height:130px; border:none; " id="nucleo_upload" src="../uploader/"></iframe>
+                                    </div>
+
+                                    <div id="multiplo_only" class="panel-body" style="display: none;">
+                                        <div class="form-group">
+                                            <label>Mapa da Placa</label>
+                                            <iframe style="width:100%; height:130px; border:none; " id="mapa_upload" src="../uploader/"></iframe>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Número de Sequências</label>
+                                            <input type="number" class="form-control" id="seq_num">
+                                        </div>
                                     </div>
                                     <button type="submit" id="create-sequenciamento" class="btn btn-default">Enviar</button>
                                     <button type="reset" class="btn btn-default">Cancelar</button>
-                                </form>
                             </div>
                             <!-- /.panel-body -->
                         </div>
@@ -215,39 +348,16 @@
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
 
-
-
-    <script src="../jQuery-File-Upload-9.11.2/js/vendor/jquery.ui.widget.js"></script>
-    <script src="../jQuery-File-Upload-9.11.2/js/jquery.iframe-transport.js"></script>
-    <script src="../jQuery-File-Upload-9.11.2/js/jquery.fileupload.js"></script>
-
     <script>
     $(document).ready(function() {
-        $('#dataTables-example').DataTable({
+        $('#dataTables-unico').DataTable({
+            responsive: true
+        });
+
+        $('#dataTables-multiplo').DataTable({
                 responsive: true
         });
 
-        $('#uploadEletro').fileupload({
-            maxFileSize: 100000000,
-            acceptFileTypes: /(\.|\/)(pdf|xlsx)$/i,
-            singleFileUploads: true,
-            maxNumberOfFiles: 1,
-            dataType: 'json',
-            done: function (e, data) {
-                console.log(JSON.stringify(data, null, 2));
-                $.each(data.result.files, function (index, file) {
-                    console.log(file.name);
-//                    $('<p/>').text(file.name).appendTo(document.body);
-                });
-            },
-            progressall: function (e, data) {
-                var progress = parseInt(data.loaded / data.total * 100, 10);
-                console.log(progress + "%");
-            },
-            fail: function(e, data) {
-                console.log('Fail!');
-            }
-        });
     });
     </script>
 

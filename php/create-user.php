@@ -15,13 +15,13 @@ $active = true;
 $birthDate = $_POST["birthDate"];
 $role_id = $_POST["role_id"];
 $email = $_POST["email"];
-$password = $_POST["password"];
+$user_password = $_POST["password"];
 $lattes = $_POST["lattes"];
+$profile_pic = $_POST["profile_pic"];
 
-$hashPassword = create_hash(stripslashes($password));
+$hashPassword = create_hash(stripslashes($user_password));
 
-$serverpassword = '';
-$mysqli = new mysqli($servername, $username, $serverpassword, $dbname);
+$mysqli = new mysqli($servername, $username, $password, $dbname);
 
 if ($mysqli->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -35,9 +35,9 @@ if ($result = $mysqli->query($query)) {
         // Insert user at Users table
 
         /* Prepare an insert statement */
-        $query = "INSERT INTO Usuario (id, primeiro_nome, sobrenome, nome, ativo, dataNascimento, membroDesde, role_id, email, password, lattes) values (NULL, ?, ?, ?, ?, ?, NULL, ?, ?, ?, ?)";
+        $query = "INSERT INTO Usuario (id, primeiro_nome, sobrenome, nome, ativo, dataNascimento, membroDesde, role_id, email, password, lattes, profile_pic) values (NULL, ?, ?, ?, ?, ?, NULL, ?, ?, ?, ?, ?)";
         $stmt = $mysqli->prepare($query);
-        if (!$stmt->bind_param("sssssssss", $first_name, $last_name, $name, $active, $birthDate, $role_id, $email, $hashPassword, $lattes)) {
+        if (!$stmt->bind_param("ssssssssss", $first_name, $last_name, $name, $active, $birthDate, $role_id, $email, $hashPassword, $lattes, $profile_pic)) {
             echo returnJSON("100", "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error, array());
             exit;
         }

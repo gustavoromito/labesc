@@ -18,14 +18,7 @@
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> Novo Usuário</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> Meu Perfil</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="../pages/login.html"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
+                        <li><a href="../pages/login.html"><i class="fa fa-sign-out fa-fw"></i> Entrar/Sair</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->

@@ -20,6 +20,14 @@ $dbname = "labcromoss";
 //echo "Connected successfully";
 //$conn->close();
 
+$admin_role_id = 3;
+$professor_role_id = 4;
+$aluno_pos_doc_role_id = 5;
+$aluno_doc_role_id = 6;
+$aluno_mes_role_id = 7;
+$aluno_ini_role_id = 8;
+$colaborador_role_id = 9;
+
 
 function getAllUsers() {
     global $servername;
@@ -35,6 +43,87 @@ function getAllUsers() {
         die("Connection failed: " . $conn->connect_error);
     }
     $sql = "SELECT * FROM Usuario";
+    $result = $conn->query($sql);
+
+    $conn->close();
+    return $result;
+}
+
+function getAllProfessors() {
+    global $servername;
+    global $username;
+    global $password;
+    global $dbname;
+    global $professor_role_id;
+
+// Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    $sql = "SELECT * FROM Usuario WHERE role_id = " . $professor_role_id;
+    $result = $conn->query($sql);
+
+    $conn->close();
+    return $result;
+}
+
+function getAllAnimals() {
+    global $servername;
+    global $username;
+    global $password;
+    global $dbname;
+
+// Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    $sql = "SELECT * FROM Animal";
+    $result = $conn->query($sql);
+
+    $conn->close();
+    return $result;
+}
+
+function getAllUniqueSequenciamentos() {
+    global $servername;
+    global $username;
+    global $password;
+    global $dbname;
+
+// Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    $sql = "SELECT * FROM Sequenciamento WHERE type = 'unico'";
+    $result = $conn->query($sql);
+
+    $conn->close();
+    return $result;
+}
+
+function getAllMultiSequenciamentos() {
+    global $servername;
+    global $username;
+    global $password;
+    global $dbname;
+
+// Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    $sql = "SELECT * FROM Sequenciamento WHERE type = 'multiplo'";
     $result = $conn->query($sql);
 
     $conn->close();

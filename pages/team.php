@@ -25,8 +25,13 @@
                 <?php
                 $result = getAllUsers();
                 while ($row = $result->fetch_assoc()) {
+                    $profile_picture = $row['profile_pic'];
+                    if ($profile_picture == 'undefined') {
+                        $profile_picture = "../src/default-profile-pic.png";
+                    }
+                    $style = "background-image:url('" . $profile_picture . "'); background-position: center center; background-size: cover;margin: auto; width: 200px; height: 200px;";
                     echo '<div class="col-lg-4 col-sm-6 text-center" style="padding-top: 15px; padding-right: 0px; padding-left: 0px; padding-bottom: 15px; background: #ededed; border-radius: 10px; margin: 10px; max-width: 30%;">
-                            <img class="img-circle img-responsive img-center" src="../src/romito.jpg" alt="" style="margin: auto; width: 200px; height: 200px;">
+                            <div class="img-circle img-responsive img-center" style="' . $style . '"></div>
                             <h3 style="margin: auto; max-width: 300px; height: 52px;">' . $row['nome'] . '</h3>
                             <h4 style="color: #808080;">'. getRoleName($row['role_id']) . '</h4>
                             <a href="profile.php?user_id=' . $row['id'] . '">
