@@ -44,6 +44,10 @@
             });
         });
 
+        $("#cancel").click(function() {
+            window.location.href = "publications.php";
+        });
+
         function convertDataToJSON(data) {
             try{
                 var obj = jQuery.parseJSON(data);
@@ -66,7 +70,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Novo Usuário</h1>
+                    <h1 class="page-header">Nova Publicação</h1>
                 </div>
             </div>
             <div class="col-lg-12 text-left" style="padding-bottom:15px;">

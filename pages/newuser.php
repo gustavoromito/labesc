@@ -30,6 +30,7 @@
             var role_id = $('option:selected', $("#selectRole")).attr('roleid');
             var birthDate = $("#birthDate").val();
             var lattes = $("#lattes").val();
+            var search_area = $("#searchArea").val();
 
             var data = 'first_name='+ first_name;
             data += '&last_name='+ last_name;
@@ -38,6 +39,7 @@
             data += '&role_id='+ role_id;
             data += '&birthDate='+ birthDate;
             data += '&lattes='+ lattes;
+            data += '&search_area='+ search_area;
 
             post("../php/create-user.php", data, function(response) {
                 var obj = convertDataToJSON(response);
@@ -46,6 +48,10 @@
                     window.location.href = "team.php";
                 }
             });
+        });
+
+        $("#cancel").click(function() {
+            window.location.href = "team.php";
         });
 
         function convertDataToJSON(data) {
@@ -96,13 +102,15 @@
                     <label>Lattes:</label>
                     <input class="form-control" id="lattes" placeholder="Lattes">
                     <label>Área de Pesquisa:</label>
-                    <textarea class="form-control" rows="3" placeholder="Clique para inserir uma descrição sobre a área de atuação"></textarea>
+                    <textarea class="form-control" id="searchArea" rows="3" placeholder="Clique para inserir uma descrição sobre a área de atuação"></textarea>
             </div>
             <div class="row text-center">
-                <img class="img-circle img-responsive img-center" src="../src/no-img.jpg" style="width: 200px; height: 200px; margin-bottom: 10px;">
+                <img class="img-circle img-responsive img-center" src="../src/no-img.jpg" style="width: 200px; height: 200px; margin-bottom: 10px; display: initial">
                 <button type="button" class="btn btn-default">Alterar Foto</button>
             </div>
             <div class="row text-center" style="padding-bottom: 20px;">
+
+                <button type="submit" style="margin: 10px;" class="btn btn-default" id="cancel">Cancelar</button>
                 <button type="submit" class="btn btn-default" id="create-new-user">Criar Usuário</button>
             </div>
         </div>

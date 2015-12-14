@@ -1,43 +1,15 @@
+<?php
+include("../php/databaseManager.php");
+
+//$user = getUserDetails($_GET['user_id']);
+$user = getUserDetails(1);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Editar Usuário</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- MetisMenu CSS -->
-    <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
-
-    <!-- Timeline CSS -->
-    <link href="../dist/css/timeline.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="../dist/css/round-about.css" rel="stylesheet">
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
-
-    <!-- Morris Charts CSS -->
-    <link href="../bower_components/morrisjs/morris.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
+<?php include("../php/head.php"); ?>
 
 <body>
 
@@ -52,20 +24,31 @@
             </div>
             <div class="col-lg-6 text-left" style="padding-bottom:15px;">
                     <label>Nome:</label>
-                    <input class="form-control" placeholder="Nome Completo" value="Mateus Lourenção">
+                    <input id="name" class="form-control">
+
                     <label>Função:</label>
-                    <select class="form-control">
-                        <option>Professor</option>
-                        <option>Pesquisador Visitante</option>
-                        <option>Aluno Pós-Graduação</option>
-                        <option>Aluno Graduação</option>
-                    </select>
+                    <input class="form-control" id="function">
+
                     <label>E-mail:</label>
-                    <input class="form-control" placeholder="E-mail" value="mateus.lourencao.dias@usp.br">
+                    <input class="form-control" id="email">
+
                     <label>Lattes:</label>
-                    <input class="form-control" placeholder="Lattes" value="">
+                    <input class="form-control" id="lattes">
+
+
                     <label>Área de Pesquisa:</label>
-                    <textarea class="form-control" rows="3" placeholder="Clique para inserir uma descrição sobre a área de atuação"></textarea>
+                    <input class="form-control" rows=3 id="actuation">
+
+                    <script>
+$('#name').value = toString(<?php echo (string)$user['nome']?>);
+                        $('#name').val(<?php echo (string)$user['nome']?>);
+
+                        $('#function').val(<?php echo getRoleName($user['role_id'])?>);
+                        $('#email').val(<?php echo $user['email']?>);
+                        $('#lattes').val(<?php echo $user['lattes']?>);
+                        $('#actuation').val(<?php echo $user['area_atuacao']?>);
+                    
+                    </script>
             </div>
             <div class="row text-center">
                 <img class="img-circle img-responsive img-center" src="../src/loren.jpg" style="width: 200px; height: 200px; margin-bottom: 10px;">

@@ -20,8 +20,6 @@
                 </div>
             </div>
             <div class="row">
-              <!-- o container sera montado atraves de um template de forma dinamica-->
-              <!-- adicionar um crop para o tamanho da imagem-->
                 <?php
                 $result = getAllUsers();
                 while ($row = $result->fetch_assoc()) {
@@ -34,42 +32,6 @@
                             </a>
                         </div>';
                 } ?>
-
-<!--                -->
-<!--                <div class="col-lg-4 col-sm-6 text-center" style="padding-bottom:15px;">-->
-<!--                  <img class="img-circle img-responsive img-center" src="../src/loren.jpg" alt="" style="width: 200px; height: 200px;">-->
-<!--                  <h3>Mateus Lourenção</h3>-->
-<!--                  <h4>Professor Doutor</h4>-->
-<!--                  <button type="button" class="btn btn-success btn-xs">Ver Perfil</button>-->
-<!--                </div>-->
-<!--                -->
-<!--                <div class="col-lg-4 col-sm-6 text-center" style="padding-bottom:15px;">-->
-<!--                  <img class="img-circle img-responsive img-center" src="../src/paladia.jpg" alt="" style="width: 200px; height: 200px;">-->
-<!--                  <h3>Leonardo Paladia</h3>-->
-<!--                  <h4>Professor</h4>-->
-<!--                  <button type="button" class="btn btn-success btn-xs">Ver Perfil</button>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="col-lg-4 col-sm-6 text-center" style="padding-bottom:15px;">-->
-<!--                  <img class="img-circle img-responsive img-center" src="../src/pavanelli.jpg" alt="" style="width: 200px; height: 200px;">-->
-<!--                  <h3>Matheus Pavanelli</h3>-->
-<!--                  <h4>Professor Visitante</h4>-->
-<!--                  <button type="button" class="btn btn-success btn-xs">Ver Perfil</button>-->
-<!--                </div>-->
-<!--                -->
-<!--                <div class="col-lg-4 col-sm-6 text-center" style="padding-bottom:15px;">-->
-<!--                  <img class="img-circle img-responsive img-center" src="../src/kaio.jpg" alt="" style="width: 200px; height: 200px;">-->
-<!--                  <h3>Kaio Pedroza</h3>                -->
-<!--                  <h4>Aluno</h4>-->
-<!--                  <button type="button" class="btn btn-success btn-xs">Ver Perfil</button>-->
-<!--                </div>-->
-<!--                -->
-<!--                <div class="col-lg-4 col-sm-6 text-center" style="padding-bottom:15px;">-->
-<!--                  <img class="img-circle img-responsive img-center" src="../src/jr.jpg" alt="" style="width: 200px; height: 200px;">-->
-<!--                  <h3>Geraldo Júnior</h3>-->
-<!--                  <h4>Aluno Pós-Graduação</h4>-->
-<!--                  <button type="button" class="btn btn-success btn-xs">Ver Perfil</button>-->
-<!--                </div>-->
 
         </div>
     </div>
