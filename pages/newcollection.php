@@ -2,7 +2,6 @@
 <html lang="en">
 
 <?php include("../php/head.php"); ?>
-<?php include("../php/databaseManager.php"); ?>
 
 <script>
     $(document).ready(function() {

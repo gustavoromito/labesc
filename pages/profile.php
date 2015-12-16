@@ -1,9 +1,3 @@
-<?php
-include("../php/databaseManager.php");
-
-$user = getUserDetails($_GET['user_id']);
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +6,10 @@ $user = getUserDetails($_GET['user_id']);
 <body>
     <div id="wrapper">
       <!-- include navigation.php -->
-      <?php include("../php/navigation.php"); ?>
+      <?php
+      include("../php/navigation.php");
+      $user = getUserDetails($_GET['user_id']);
+      ?>
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">

@@ -2,7 +2,6 @@
 <html lang="en">
 
 <?php include("../php/head.php"); ?>
-<?php include("../php/databaseManager.php"); ?>
 
 <body>
 
@@ -14,7 +13,13 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header" style="float: left; width: 80%;">Publicações</h1>
-                    <a href="newpublication.php"><button type="button" style="margin: 40px 0 20px; width: 15%; float: right;" class="btn btn-outline btn-primary" id="newBtn">Nova Publicação</button></a>
+                    <?php
+                        if ($user['role_id'] == $admin_role_id) {
+                            echo '<a href="newpublication.php">
+                                    <button type="button" style="margin: 40px 0 20px; width: 15%; float: right;" class="btn btn-outline btn-primary" id="newBtn">Nova Publicação</button>
+                                  </a>';
+                        }
+                    ?>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>

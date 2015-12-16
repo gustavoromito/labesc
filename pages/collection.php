@@ -2,7 +2,6 @@
 <html lang="en">
 
 <?php include("../php/head.php"); ?>
-<?php include("../php/databaseManager.php"); ?>
 
 <script>
     $(document).ready(function(){
@@ -63,9 +62,13 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header" style="float: left; width: 80%; text-align: cnter;">Coleções</h1>
-                    <a href="newcollection.php">
-                        <button type="button" style="margin: 40px 0 20px; width: 15%; float: right;" class="btn btn-outline btn-primary" id="newBtn">Nova Coleta</button>
-                    </a>
+                    <?php
+                        if ($user['role_id'] == $admin_role_id) {
+                            echo '<a href="newcollection.php">
+                                    <button type="button" style="margin: 40px 0 20px; width: 15%; float: right;" class="btn btn-outline btn-primary" id="newBtn">Nova Coleta</button>
+                                  </a>';
+                        }
+                    ?>
                 </div>
             </div>
             <div class="row">
@@ -97,9 +100,14 @@
                                                         <td style="text-align: center;border-top: 0px solid #ddd;">'.$row['id'].'</td>
                                                         <td style="text-align: center;border-top: 0px solid #ddd;">'.$row['nome'].'</td>
                                                         <td style="text-align: center;border-top: 0px solid #ddd;">'.$row['data_coletado'].'</td>
-                                                        <td style="text-align: center;border-top: 0px solid #ddd;">'.$row['numero_smrp'].'</td>
-                                                        <td style="text-align: center;border-top: 0px solid #ddd;" collection_id="'. $row['id'] . '"class="glyphicon glyphicon-remove-circle remove-collection"></td>
-                                                    </tr>';
+                                                        <td style="text-align: center;border-top: 0px solid #ddd;">'.$row['numero_smrp'].'</td>';
+
+                                                if ($user['role_id'] == $admin_role_id) {
+                                                    echo ' <td style="text-align: center;border-top: 0px solid #ddd;" collection_id="'. $row['id'] . '"class="glyphicon glyphicon-remove-circle remove-collection"></td>';
+                                                } else {
+                                                    echo ' <td></td>';
+                                                }
+                                                echo '</tr>';
                                             }
                                         ?>
                                     </tbody>

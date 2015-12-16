@@ -49,6 +49,26 @@ function getAllUsers() {
     return $result;
 }
 
+function getUserWithToken($token) {
+    global $servername;
+    global $username;
+    global $password;
+    global $dbname;
+
+// Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    $sql = "SELECT * FROM Tokens as t INNER JOIN Usuario as u ON u.id = t.owner_id WHERE token = '$token'";
+    $result = $conn->query($sql);
+
+    $conn->close();
+    return $result;
+}
+
 function getAllProfessors() {
     global $servername;
     global $username;
@@ -90,12 +110,18 @@ function getAllAnimals() {
     return $result;
 }
 
-function getAllUniqueSequenciamentos() {
+function getAllUniqueSequenciamentos($user_id, $professor_id, $user_role_id) {
     global $servername;
     global $username;
     global $password;
     global $dbname;
-
+    global $admin_role_id;
+    global $professor_role_id;
+    global $aluno_pos_doc_role_id;
+    global $aluno_doc_role_id;
+    global $aluno_mes_role_id;
+    global $aluno_ini_role_id;
+    global $colaborador_role_id;
 // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -103,18 +129,34 @@ function getAllUniqueSequenciamentos() {
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    $sql = "SELECT * FROM Sequenciamento WHERE type = 'unico'";
+
+    $sql = "";
+    if ($user_role_id == $admin_role_id) {
+        $sql = "SELECT * FROM Sequenciamento WHERE type = 'unico'";
+    } else if ($user_role_id == $aluno_doc_role_id || $user_role_id == $aluno_ini_role_id || $user_role_id == $aluno_mes_role_id
+                || $user_role_id == $aluno_pos_doc_role_id) {
+        $sql = "SELECT * FROM Sequenciamento WHERE type = 'unico' AND pesquisador_id = " . $user_id;
+    } else if ($user_role_id == $professor_role_id || $user_role_id == $colaborador_role_id) {
+        $sql = "SELECT * FROM Sequenciamento WHERE type = 'unico' AND (pesquisador_id = " . $user_id . " OR pesquisador_id = " . $professor_id . ");";
+    }
     $result = $conn->query($sql);
 
     $conn->close();
     return $result;
 }
 
-function getAllMultiSequenciamentos() {
+function getAllMultiSequenciamentos($user_id, $professor_id, $user_role_id) {
     global $servername;
     global $username;
     global $password;
     global $dbname;
+    global $admin_role_id;
+    global $professor_role_id;
+    global $aluno_pos_doc_role_id;
+    global $aluno_doc_role_id;
+    global $aluno_mes_role_id;
+    global $aluno_ini_role_id;
+    global $colaborador_role_id;
 
 // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -123,7 +165,16 @@ function getAllMultiSequenciamentos() {
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    $sql = "SELECT * FROM Sequenciamento WHERE type = 'multiplo'";
+
+    $sql = "";
+    if ($user_role_id == $admin_role_id) {
+        $sql = "SELECT * FROM Sequenciamento WHERE type = 'multiplo'";
+    } else if ($user_role_id == $aluno_doc_role_id || $user_role_id == $aluno_ini_role_id || $user_role_id == $aluno_mes_role_id
+        || $user_role_id == $aluno_pos_doc_role_id) {
+        $sql = "SELECT * FROM Sequenciamento WHERE type = 'multiplo' AND pesquisador_id = " . $user_id;
+    } else if ($user_role_id == $professor_role_id || $user_role_id == $colaborador_role_id) {
+        $sql = "SELECT * FROM Sequenciamento WHERE type = 'multiplo' AND (pesquisador_id = " . $user_id . " OR pesquisador_id = " . $professor_id . ");";
+    }
     $result = $conn->query($sql);
 
     $conn->close();

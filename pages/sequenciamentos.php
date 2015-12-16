@@ -2,7 +2,7 @@
 <html lang="en">
 
 <?php include("../php/head.php"); ?>
-<?php include("../php/databaseManager.php"); ?>
+
 <script>
     Date.prototype.toDateInputValue = (function() {
         var local = new Date(this);
@@ -157,7 +157,7 @@
                                         </thead>
                                         <tbody>
                                         <?php
-                                        $result = getAllUniqueSequenciamentos();
+                                        $result = getAllUniqueSequenciamentos($user['id'], $user['professor_id'], $user['role_id']);
                                         while ($row = $result->fetch_assoc()) {
                                             echo '<tr class="">
                                                         <td>' . $row['data']  .'</td>
@@ -206,7 +206,7 @@
                                         </thead>
                                         <tbody>
                                         <?php
-                                            $result = getAllMultiSequenciamentos();
+                                            $result = getAllMultiSequenciamentos($user['id'], $user['professor_id'], $user['role_id']);
                                             while ($row = $result->fetch_assoc()) {
                                                 echo '<tr class="">
                                                         <td>' . $row['data']  .'</td>
