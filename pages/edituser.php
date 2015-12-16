@@ -53,8 +53,9 @@
             data += "&profile_pic=" + profile_pic;
             data += "&professor_id=" + professor_id;
             data += "&area_atuacao=" + area_atuacao;
+            data += "&user_id=" + user_id;
 
-            post("../php/create-user.php", data, function(response) {
+            post("../php/update-user.php", data, function(response) {
                 console.log(response);
                 var obj = convertDataToJSON(response);
                 alert(obj.message);
@@ -86,6 +87,9 @@
         include("../php/navigation.php");
         $user = getUserDetails($_GET['user_id']);
     ?>
+    <script>
+        var user_id = <?php echo $user['id'];?>;
+    </script>
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">

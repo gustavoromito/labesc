@@ -8,32 +8,56 @@
       <!-- include navigation.php -->
       <?php
       include("../php/navigation.php");
-      $user = getUserDetails($_GET['user_id']);
+      $profile_of_user = getUserDetails($_GET['user_id']);
       ?>
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header"><?php echo $user['nome'] ?></h1>
+                    <?php
+                    if ($user['role_id'] == $admin_role_id) {
+                        echo '<a href="edituser.php?user_id='.$profile_of_user['id'].'">
+                                    <button type="button" style="margin: 40px 0 20px; width: 15%; float: right;" class="btn btn-outline btn-primary" id="newBtn">Editar Usuário</button>
+                                  </a>';
+                    }
+                    ?>
+                    <h1 class="page-header"><?php echo $profile_of_user['nome'] ?></h1>
                 </div>
             </div>
             <div class="row text-center">
-              <img class="img-circle img-responsive img-center" src="../src/loren.jpg" style="width: 150px; height: 150px;">
+                <?php
+                    $img = "../src/default-profile-pic.png";
+                    if ($user['profile_pic'] !== 'undefined') {
+                        $img = $user['profile_pic'];
+                    }
+                    echo '<img class="img-circle img-responsive img-center" src="' . $img . '" style="width: 150px; height: 150px;">';
+
+
+                ?>
             </div>
             <div class="text-left" style="padding-bottom:15px;">
                   <p class="form-control-static">
-                    <label>Função:</label> <?php echo getRoleName($user['role_id']);?>
+                    <label>Função:</label> <?php echo getRoleName($profile_of_user['role_id']);?>
                   </p>
                   <p class="form-control-static">
-                    <label>Membro Desde:</label> <?php
-                      $time = strtotime($user['membroDesde']);
+                    <label>Membro Desde: </label> <?php
+                      $time = strtotime($profile_of_user['membroDesde']);
                       $newformat = date('d/m/Y',$time);
                       echo $newformat;?>
                   </p>
-                  
-                  <p class="form-control-static">
-                    <label>Lattes:</label>
-                    <a target="_blank" href="http://lattes.cnpq.br/7701978370621549">http://lattes.cnpq.br/7701978370621549</a>
-                  </p>
+
+                    <p class="form-control-static">
+                        <label>Data de Nascimento: </label> <?php
+                        $time = strtotime($profile_of_user['dataNascimento']);
+                        $newformat = date('d/m/Y',$time);
+                        echo $newformat;?>
+                    </p>
+
+                    <p class="form-control-static">
+                        <label>Area de Atuação: </label><?php echo $profile_of_user['area_atuacao'];?>
+                    </p>
+                    <p class="form-control-static">
+                        <label>Lattes: </label><?php echo $profile_of_user['lattes'];?>
+                    </p>
             </div>
         </div>
     </div>

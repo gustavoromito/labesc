@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dca401da-62fc-43ec-baa9-dc2f532c299f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/create-user.php" afterPath="$PROJECT_DIR$/php/create-user.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/dashboard.php" afterPath="$PROJECT_DIR$/pages/dashboard.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/databaseManager.php" afterPath="$PROJECT_DIR$/php/databaseManager.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/create-collection.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/update-user.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/edituser.php" afterPath="$PROJECT_DIR$/pages/edituser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/newuser.php" afterPath="$PROJECT_DIR$/pages/newuser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/sequenciamentos.php" afterPath="$PROJECT_DIR$/pages/sequenciamentos.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/newcollection.php" afterPath="$PROJECT_DIR$/pages/newcollection.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/profile.php" afterPath="$PROJECT_DIR$/pages/profile.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="labesc.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,10 +62,8 @@
         <option value="$PROJECT_DIR$/uploader/processupload.php" />
         <option value="$PROJECT_DIR$/php/authenticate.php" />
         <option value="$PROJECT_DIR$/pages/newpublication.php" />
-        <option value="$PROJECT_DIR$/pages/newcollection.php" />
         <option value="$PROJECT_DIR$/php/navigation.php" />
         <option value="$PROJECT_DIR$/php/logout.php" />
-        <option value="$PROJECT_DIR$/pages/profile.php" />
         <option value="$PROJECT_DIR$/pages/publications.php" />
         <option value="$PROJECT_DIR$/pages/collection.php" />
         <option value="$PROJECT_DIR$/pages/team.php" />
@@ -73,8 +71,12 @@
         <option value="$PROJECT_DIR$/php/databaseManager.php" />
         <option value="$PROJECT_DIR$/pages/sequenciamentos.php" />
         <option value="$PROJECT_DIR$/pages/newuser.php" />
-        <option value="$PROJECT_DIR$/pages/edituser.php" />
         <option value="$PROJECT_DIR$/php/create-user.php" />
+        <option value="$PROJECT_DIR$/pages/profile.php" />
+        <option value="$PROJECT_DIR$/php/create-collection.php" />
+        <option value="$PROJECT_DIR$/pages/newcollection.php" />
+        <option value="$PROJECT_DIR$/php/update-user.php" />
+        <option value="$PROJECT_DIR$/pages/edituser.php" />
       </list>
     </option>
   </component>
@@ -309,24 +311,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/php/navigation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1450225316000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1450225316000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/sequenciamentos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/create-sequenciamento.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -547,14 +531,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/create-publication.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="39" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/create-sequenciamento.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3755523">
@@ -579,14 +555,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/newpublication.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/newcollection.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.5">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
@@ -639,40 +607,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/team.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8615611">
-          <caret line="39" column="17" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
-          <folding>
-            <marker date="1450226239000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1450226239000" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1450226239000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1450226239000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1450226239000" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1450226239000" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1450226239000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/collection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.054492">
-          <caret line="93" column="44" selection-start-line="93" selection-start-column="44" selection-end-line="93" selection-end-column="44" />
-          <folding>
-            <marker date="1450226007000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1450226007000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1450226007000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1450226007000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1450226007000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1450226007000" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1450226007000" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1450226007000" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1450226007000" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.75699556">
@@ -716,42 +650,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/profile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22091311">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/create-user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8011782">
-          <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
-          <folding>
-            <marker date="1450230463000" expanded="true" signature="-1:-1" placeholder="SELECT email..Usuario..." />
-            <marker date="1450230463000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/edituser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31516936">
-          <caret line="42" column="53" selection-start-line="42" selection-start-column="53" selection-end-line="42" selection-end-column="53" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1450230414000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1450230414000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1450230414000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1450230414000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1450230414000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1450230414000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1450230414000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/databaseManager.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.65390277">
@@ -781,6 +679,85 @@
         <state vertical-scroll-proportion="0.27098674">
           <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="54" selection-end-column="52" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/team.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46391752">
+          <caret line="31" column="76" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/profile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.51104563">
+          <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/collection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.791667">
+          <caret line="67" column="33" selection-start-line="67" selection-start-column="33" selection-end-line="67" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/create-publication.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="39" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/newcollection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.50810015">
+          <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/create-collection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.125">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <marker date="1450231684000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/create-user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.84830636">
+          <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/edituser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5051546">
+          <caret line="123" column="29" selection-start-line="123" selection-start-column="29" selection-end-line="123" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/update-user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7952872">
+          <caret line="37" column="34" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="34" />
+          <folding>
+            <element signature="e#6#93#0#PHP" expanded="true" />
+            <marker date="1450233049000" expanded="true" signature="-1:-1" placeholder="UPDATE Usuar..." />
+            <marker date="1450233049000" expanded="true" signature="-1:-1" placeholder="UPDATE Usuar..." />
+            <marker date="1450233049000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+          </folding>
         </state>
       </provider>
     </entry>

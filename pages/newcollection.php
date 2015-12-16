@@ -21,28 +21,21 @@
                 });
         }
 
-        $("#create-new-user").click(function() {
-            var first_name = $("#firstname").val();
-            var last_name = $("#lastname").val();
-            var email = $("#email").val();
-            var password = $("#password").val();
-            var role_id = $('option:selected', $("#selectRole")).attr('roleid');
-            var birthDate = $("#birthDate").val();
-            var lattes = $("#lattes").val();
+        $("#create-new-collection").click(function() {
+            var title = $("#title_collection").val();
+            var cod = $("#cod_srmp").val();
+            var dt = $("#dt_collection").val();
 
-            var data = 'first_name='+ first_name;
-            data += '&last_name='+ last_name;
-            data += '&email='+ email;
-            data += '&password='+ password;
-            data += '&role_id='+ role_id;
-            data += '&birthDate='+ birthDate;
-            data += '&lattes='+ lattes;
+            var data = 'title='+ title;
+            data += '&codigo='+ cod;
+            data += '&date='+ dt;
 
-            post("../php/create-user.php", data, function(response) {
+
+            post("../php/create-collection.php", data, function(response) {
                 var obj = convertDataToJSON(response);
                 alert(obj.message);
                 if (obj.status == "200") {
-                    window.location.href = "team.php";
+                    window.location.href = "collection.php";
                 }
             });
         });
@@ -74,13 +67,13 @@
             </div>
             <div class="col-lg-6 text-left" style="padding-bottom:15px;">
                     <label>Título:</label>
-                    <input class="form-control" id="id_collection" placeholder="Título da Coleta">
+                    <input class="form-control" id="title_collection" placeholder="Título da Coleta">
                     <label>Código SRMP:</label>
                     <input class="form-control" id="cod_srmp" placeholder="Código SRMP">
                     <label>Data:</label>
                     <input class="form-control" type="date" id="dt_collection" placeholder="Data da Coleta">
                     <div class="row text-center" style="padding-bottom: 20px; margin-top: 10px;">
-                        <button type="submit" class="btn btn-default" id="create-new-user">Salvar</button>
+                        <button type="submit" class="btn btn-default" id="create-new-collection">Salvar</button>
                     </div>
             </div>
             
