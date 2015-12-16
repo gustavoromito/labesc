@@ -42,87 +42,87 @@
                 </div>
             </div>
             <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-8">
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-clock-o fa-fw"></i> Linha do Tempo
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <ul class="timeline">
-                                <li>
-                                    <div class="timeline-badge"><i class="fa fa-check"></i>
-                                    </div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 horas atrás</small>
-                                            </p>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p>Kaio editou o <a href="#">Sequenciamento #1234</a></p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="timeline-inverted">
-                                    <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
-                                    </div>
-                                    <div class="timeline-panel">
-                                    	<div class="timeline-heading">
-                                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> 15 de Setembro de 2015</small>
-                                            </p>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p>Leonardo Paladia criou o <a href="#">Sequenciamento #1234</a></p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="timeline-badge danger"><i class="fa fa-bomb"></i>
-                                    </div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-											<p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 de Setembro de 2015</small>
-                                            </p>
-										</div>
-                                        <div class="timeline-body">
-                                            <p>Geraldo Jr. removeu o Sequenciamento #4321</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="timeline-inverted">
-                                    <div class="timeline-badge success"><i class="fa fa-graduation-cap"></i>
-                                    </div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-											<p><small class="text-muted"><i class="fa fa-clock-o"></i> 10 de Setembro de 2015</small>
-                                            </p>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p>Administrador adicionou novo usuário Matheus Pavanelli.</p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-8 -->
-                <div class="col-lg-4">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bell fa-fw"></i> Painel de Notificações
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <a href="#" class="btn btn-default btn-block">Ver Alertas</a>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                </div>
+<!--            <div class="row">-->
+<!--                <div class="col-lg-8">-->
+<!--                    <!-- /.panel -->
+<!--                    <div class="panel panel-default">-->
+<!--                        <div class="panel-heading">-->
+<!--                            <i class="fa fa-clock-o fa-fw"></i> Linha do Tempo-->
+<!--                        </div>-->
+<!--                        <!-- /.panel-heading -->
+<!--                        <div class="panel-body">-->
+<!--                            <ul class="timeline">-->
+<!--                                <li>-->
+<!--                                    <div class="timeline-badge"><i class="fa fa-check"></i>-->
+<!--                                    </div>-->
+<!--                                    <div class="timeline-panel">-->
+<!--                                        <div class="timeline-heading">-->
+<!--                                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 horas atrás</small>-->
+<!--                                            </p>-->
+<!--                                        </div>-->
+<!--                                        <div class="timeline-body">-->
+<!--                                            <p>Kaio editou o <a href="#">Sequenciamento #1234</a></p>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </li>-->
+<!--                                <li class="timeline-inverted">-->
+<!--                                    <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>-->
+<!--                                    </div>-->
+<!--                                    <div class="timeline-panel">-->
+<!--                                    	<div class="timeline-heading">-->
+<!--                                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> 15 de Setembro de 2015</small>-->
+<!--                                            </p>-->
+<!--                                        </div>-->
+<!--                                        <div class="timeline-body">-->
+<!--                                            <p>Leonardo Paladia criou o <a href="#">Sequenciamento #1234</a></p>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <div class="timeline-badge danger"><i class="fa fa-bomb"></i>-->
+<!--                                    </div>-->
+<!--                                    <div class="timeline-panel">-->
+<!--                                        <div class="timeline-heading">-->
+<!--											<p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 de Setembro de 2015</small>-->
+<!--                                            </p>-->
+<!--										</div>-->
+<!--                                        <div class="timeline-body">-->
+<!--                                            <p>Geraldo Jr. removeu o Sequenciamento #4321</p>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </li>-->
+<!--                                <li class="timeline-inverted">-->
+<!--                                    <div class="timeline-badge success"><i class="fa fa-graduation-cap"></i>-->
+<!--                                    </div>-->
+<!--                                    <div class="timeline-panel">-->
+<!--                                        <div class="timeline-heading">-->
+<!--											<p><small class="text-muted"><i class="fa fa-clock-o"></i> 10 de Setembro de 2015</small>-->
+<!--                                            </p>-->
+<!--                                        </div>-->
+<!--                                        <div class="timeline-body">-->
+<!--                                            <p>Administrador adicionou novo usuário Matheus Pavanelli.</p>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                        <!-- /.panel-body -->
+<!--                    </div>-->
+<!--                    <!-- /.panel -->
+<!--                </div>-->
+<!--                <!-- /.col-lg-8 -->
+<!--                <div class="col-lg-4">-->
+<!--                    <div class="panel panel-default">-->
+<!--                        <div class="panel-heading">-->
+<!--                            <i class="fa fa-bell fa-fw"></i> Painel de Notificações-->
+<!--                        </div>-->
+<!--                        <!-- /.panel-heading -->
+<!--                        <div class="panel-body">-->
+<!--                            <a href="#" class="btn btn-default btn-block">Ver Alertas</a>-->
+<!--                        </div>-->
+<!--                        <!-- /.panel-body -->
+<!--                    </div>-->
+<!--                </div>-->
                 <!-- /.col-lg-4 -->
             </div>
             <!-- /.row -->

@@ -276,11 +276,17 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Pesquisador</label>
-                                        <select class="form-control" id="pesquisador_select">
                                             <?php
+                                            $disabled = "";
+                                            if (isAluno($user['role_id'])) {
+                                                $disabled = "disabled";
+                                            }
+                                            echo '<select class="form-control" id="pesquisador_select" '.$disabled.'>';
                                             $result = getAllUsers();
                                             while ($row = $result->fetch_assoc()) {
-                                                echo '<option value="' . $row['id'] . '">' . $row['nome'] . '</option>';
+                                                $selected = "";
+                                                if ($user['id'] == $row['id']) { $selected = "selected"; }
+                                                echo '<option value="' . $row['id'] . '" '.$selected. '>' . $row['nome'] . '</option>';
                                             }
                                             ?>
                                         </select>

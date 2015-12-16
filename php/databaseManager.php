@@ -110,6 +110,15 @@ function getAllAnimals() {
     return $result;
 }
 
+function isAluno($role_id) {
+    global $aluno_pos_doc_role_id;
+    global $aluno_doc_role_id;
+    global $aluno_mes_role_id;
+    global $aluno_ini_role_id;
+    return ($role_id == $aluno_doc_role_id || $role_id == $aluno_ini_role_id ||
+        $role_id == $aluno_mes_role_id  || $role_id == $aluno_pos_doc_role_id);
+}
+
 function getAllUniqueSequenciamentos($user_id, $professor_id, $user_role_id) {
     global $servername;
     global $username;
@@ -117,10 +126,6 @@ function getAllUniqueSequenciamentos($user_id, $professor_id, $user_role_id) {
     global $dbname;
     global $admin_role_id;
     global $professor_role_id;
-    global $aluno_pos_doc_role_id;
-    global $aluno_doc_role_id;
-    global $aluno_mes_role_id;
-    global $aluno_ini_role_id;
     global $colaborador_role_id;
 // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -133,8 +138,7 @@ function getAllUniqueSequenciamentos($user_id, $professor_id, $user_role_id) {
     $sql = "";
     if ($user_role_id == $admin_role_id) {
         $sql = "SELECT * FROM Sequenciamento WHERE type = 'unico'";
-    } else if ($user_role_id == $aluno_doc_role_id || $user_role_id == $aluno_ini_role_id || $user_role_id == $aluno_mes_role_id
-                || $user_role_id == $aluno_pos_doc_role_id) {
+    } else if (isAluno($user_role_id)) {
         $sql = "SELECT * FROM Sequenciamento WHERE type = 'unico' AND pesquisador_id = " . $user_id;
     } else if ($user_role_id == $professor_role_id || $user_role_id == $colaborador_role_id) {
         $sql = "SELECT * FROM Sequenciamento WHERE type = 'unico' AND (pesquisador_id = " . $user_id . " OR pesquisador_id = " . $professor_id . ");";

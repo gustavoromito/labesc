@@ -18,6 +18,8 @@ $email = $_POST["email"];
 $user_password = $_POST["password"];
 $lattes = $_POST["lattes"];
 $profile_pic = $_POST["profile_pic"];
+$professor_id = $_POST["professor_id"];
+$area_atuacao = $_POST["area_atuacao"];
 
 $hashPassword = create_hash(stripslashes($user_password));
 
@@ -35,9 +37,9 @@ if ($result = $mysqli->query($query)) {
         // Insert user at Users table
 
         /* Prepare an insert statement */
-        $query = "INSERT INTO Usuario (id, primeiro_nome, sobrenome, nome, ativo, dataNascimento, membroDesde, role_id, email, password, lattes, profile_pic) values (NULL, ?, ?, ?, ?, ?, NULL, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO Usuario (id, professor_id, primeiro_nome, sobrenome, nome, ativo, dataNascimento, membroDesde, role_id, email, password, lattes, profile_pic, area_atuacao) values (NULL, ?, ?, ?, ?, ?, ?, NULL, ?, ?, ?, ?, ?, ?)";
         $stmt = $mysqli->prepare($query);
-        if (!$stmt->bind_param("ssssssssss", $first_name, $last_name, $name, $active, $birthDate, $role_id, $email, $hashPassword, $lattes, $profile_pic)) {
+        if (!$stmt->bind_param("ssssssssssss",$professor_id, $first_name, $last_name, $name, $active, $birthDate, $role_id, $email, $hashPassword, $lattes, $profile_pic, $area_atuacao)) {
             echo returnJSON("100", "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error, array());
             exit;
         }

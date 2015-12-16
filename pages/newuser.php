@@ -37,10 +37,11 @@
             var email = $("#email").val();
             var password = $("#password").val();
             var role_id = $('option:selected', $("#selectRole")).attr('roleid');
+            var professor_id = $('option:selected', $("#selectProfessor")).val();
             var birthDate = $("#birthDate").val();
             var lattes = $("#lattes").val();
             var profile_pic = $('#perfil_pic_upload').contents().find('#link').attr("link");
-            console.log(profile_pic);
+            var area_atuacao = $('#area_atuacao').val();
 
             var data = 'first_name='+ first_name;
             data += '&last_name='+ last_name;
@@ -50,6 +51,8 @@
             data += '&birthDate='+ birthDate;
             data += '&lattes='+ lattes;
             data += "&profile_pic=" + profile_pic;
+            data += "&professor_id=" + professor_id;
+            data += "&area_atuacao=" + area_atuacao;
 
             post("../php/create-user.php", data, function(response) {
                 console.log(response);
@@ -120,7 +123,7 @@
                     <label>Lattes:</label>
                     <input class="form-control" id="lattes" placeholder="Lattes">
                     <label>Área de Pesquisa:</label>
-                    <textarea class="form-control" rows="3" placeholder="Clique para inserir uma descrição sobre a área de atuação"></textarea>
+                    <textarea id="area_atuacao" class="form-control" rows="3" placeholder="Clique para inserir uma descrição sobre a área de atuação"></textarea>
                     <br><br>
                     <label>Selecione uma image de Perfil</label>
                     <iframe style="width:100%; height:100px; border:none; " id="perfil_pic_upload" src="../uploader/"></iframe>
