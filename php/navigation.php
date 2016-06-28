@@ -62,21 +62,21 @@ if ($userIsLogged) {
 <!--                            <!-- /input-group -->
 <!--                        </li>-->
                         <li>
-                            <a href="../index.html"><i class="fa fa-dashboard fa-fw"></i> Home</a>
+                            <a href="../index.html"><i class="fa  fa-home fa-fw"></i> Home</a>
                         </li>
                         <li>
-                            <a href="team.php"><i class="fa fa-bar-chart-o fa-fw"></i> Equipe</a>
+                            <a href="team.php"><i class="fa fa-user fa-fw"></i> Equipe</a>
                         </li>
                         <li>
-                            <a href="publications.php"><i class="fa fa-table fa-fw"></i> Publicações</a>
+                            <a href="publications.php"><i class="fa fa-edit fa-fw"></i> Publicações</a>
                         </li>
                         <li>
-                            <a href="collection.php"><i class="fa fa-edit fa-fw"></i> Coleção SRMP</a>
+                            <a href="collection.php"><i class="fa  fa-th fa-fw"></i> Coleção SRMP</a>
                         </li>
                         <?php
                             if ($userIsLogged) {
                                 echo '<li>
-                                        <a href="dashboard.php"><i class="fa fa-wrench fa-fw"></i> Dashboard</a>
+                                        <a href="dashboard.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                                     </li>';
                             }
                         ?>
