@@ -4,11 +4,16 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+html, body {
+    height: 100%;
+}
+
 body {
-    background-color: #f8f8f8;
+    background-color: #383838;
 }
 
 #wrapper {
+    height: 100%;
     width: 100%;
 }
 
@@ -20,6 +25,7 @@ body {
 
 @media(min-width:768px) {
     #page-wrapper {
+        min-height: 100%;
         position: inherit;
         margin: 0 0 0 250px;
         padding: 0 30px;
@@ -67,6 +73,41 @@ body {
     width: 310px;
     min-width: 0;
 }
+
+/*CHANGES*/
+.navbar-default {
+    background: transparent;
+}
+
+.navbar-static-top {
+    background: #13ef9a;
+}
+
+.navbar-default .navbar-brand {
+    color: #fff;
+}
+
+.nav>li>a {
+    color: #FFF;
+}
+
+.nav>li>a:hover {
+    color: #000;
+}
+
+.navbar-right~.navbar-right {
+    color: #f7f7f7 !important;
+}
+
+.panel-default>.panel-heading {
+    font-size: 16px;
+    color: #089e64;
+}
+
+.panel-body {
+    overflow-x: auto;
+}
+/*END*/
 
 .navbar-top-links .dropdown-messages {
     margin-left: 5px;

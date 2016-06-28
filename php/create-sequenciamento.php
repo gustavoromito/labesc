@@ -9,7 +9,7 @@ require('databaseManager.php');
 
 $type= $_POST["type"];
 $eletro_path= $_POST["eletro_path"];
-$nucleo_path= $_POST["nucleo_path"];
+//$nucleo_path= $_POST["nucleo_path"];
 $pesquisador_id= $_POST["pesquisador_id"];
 $animal_id= $_POST["animal_id"];
 $date= $_POST["date"];
@@ -26,12 +26,12 @@ if ($mysqli->connect_error) {
 //---------------------------------------------------------
 
 /* Prepare an insert statement */
-$query = "INSERT INTO `Sequenciamento`(`id`, `type`, `data`, `animal_id`, `pesquisador_id`, `servico_utilizado`, `observacoes`, `eletroferograma`, `nucleotidicas`, `mapa_placa`, `numero_sequencias`) VALUES  (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+$query = "INSERT INTO `Sequenciamento`(`id`, `type`, `data`, `animal_id`, `pesquisador_id`, `servico_utilizado`, `observacoes`, `eletroferograma`, `mapa_placa`, `numero_sequencias`) VALUES  (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 if (!$stmt = $mysqli->prepare($query)) {
     echo returnJSON("100", "Prepare parameters failed: (" . $mysqli->error . ") " . $stmt->error, array());
 }
 
-if (!$stmt->bind_param("ssssssssss", $type, $date, $animal_id, $pesquisador_id, $service, $obs, $eletro_path, $nucleo_path, $mapa_path, $num_seq)) {
+if (!$stmt->bind_param("sssssssss", $type, $date, $animal_id, $pesquisador_id, $service, $obs, $eletro_path, $mapa_path, $num_seq)) {
     echo returnJSON("100", "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error, array());
     exit;
 }

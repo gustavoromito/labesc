@@ -73,6 +73,9 @@ if ($userIsLogged) {
                         <li>
                             <a href="collection.php"><i class="fa  fa-th fa-fw"></i> Coleção SRMP</a>
                         </li>
+                        <li>
+                            <a href="contact.php"><i class="fa  fa-th fa-inbox"></i> Entre em Contato</a>
+                        </li>
                         <?php
                             if ($userIsLogged) {
                                 echo '<li>
