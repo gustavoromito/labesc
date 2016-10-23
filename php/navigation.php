@@ -80,6 +80,9 @@ if ($userIsLogged) {
                                     </li>';
                             }
                         ?>
+                        <li>
+                            <a href="contact.php"><i class="fa  fa-th fa-inbox"></i> Entre em Contato</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

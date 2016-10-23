@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,14 +67,14 @@
             var num_seq = $("#seq_num").val();
 
             if (typeof eletro_upload === 'undefined') {
-                alert("Você não fez o upload do Eletroferograma.");
+                alert("Você não fez o upload do Eletroferograma / Sequência Nucleotídica.");
                 return;
             }
 
-            if (typeof nucleo_upload === 'undefined') {
-                alert("Você não fez o upload da Sequência Nucleotídica");
-                return;
-            }
+//            if (typeof nucleo_upload === 'undefined') {
+//                alert("Você não fez o upload da Sequência Nucleotídica");
+//                return;
+//            }
 
             var params = 'type='+ type;
             params += '&eletro_path=' +  eletro_upload;
@@ -92,7 +95,6 @@
             }
 
             post("../php/create-sequenciamento.php", params, function(response) {
-                console.log(response);
                 var obj = convertDataToJSON(response);
                 alert(obj.message);
                 if (obj.status == "200") {
@@ -115,6 +117,18 @@
             }
         }
 
+        $(document).on("click", ".delete_sequenciamento", function() {
+            if (confirm('Tem certeza que deseja deletar este sequenciamento? Isso será permanente.')) {
+                var seq_id = $(this).attr("seq_id");
+                post("../php/delete-sequenciamento.php", { seq_id : seq_id }, function(response) {
+                    var obj = convertDataToJSON(response);
+                    alert(obj.message);
+                    if (obj.status == "200") {
+                        location.reload();
+                    }
+                });
+            }
+        });
 
     });
 </script>
@@ -129,7 +143,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header" style="float: left; width: 80%;">Sequenciamentos</h1>
-                        <button type="button" style="margin: 40px 0 20px; width: 15%; float: right;" class="btn btn-outline btn-primary" id="newBtn">Novo Sequenciamento</button>
+                        <button type="button" style="margin: 40px 0 20px; float: right;" class="btn btn-outline btn-primary" id="newBtn">Novo Sequenciamento</button>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -147,26 +161,28 @@
                                         <thead>
                                         <tr>
                                             <th>Data</th>
-                                            <th>Animal</th>
                                             <th>Pesquisador</th>
                                             <th>Serviço Utilizado</th>
-                                            <th>Observações</th>
-                                            <th>Eletroferograma</th>
-                                            <th>Nucleotidicas</th>
+                                            <th>Identificação Amostra (Observações)</th>
+                                            <th>Eletroferograma / Nucleotidicas</th>
+<!--                                            <th>Nucleotidicas</th>-->
+                                            <th></th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <?php
                                         $result = getAllUniqueSequenciamentos($user['id'], $user['professor_id'], $user['role_id']);
                                         while ($row = $result->fetch_assoc()) {
+                                            $user = getUserDetails($row['pesquisador_id']);
+                                            $time = strtotime($row['data']);
+                                            $date = date('d/m/Y',$time);
                                             echo '<tr class="">
-                                                        <td>' . $row['data']  .'</td>
-                                                        <td>' . $row['animal_id'] .'</td>
-                                                        <td>' . $row['pesquisador_id'] .'</td>
+                                                        <td>' . $date  .'</td>
+                                                        <td>' . $user['nome'] .'</td>
                                                         <td>' . $row['servico_utilizado'] .'</td>
                                                         <td>' . $row['observacoes'] .'</td>
                                                         <td><a class="glyphicon glyphicon-file" href="' . $row['eletroferograma'] .'" target="_blank"></a></td>
-                                                        <td><a class="glyphicon glyphicon-file" href="' . $row['nucleotidicas'] .'" target="_blank"></a></td>
+                                                        <td><button type="button" class="btn btn-outline btn-danger delete_sequenciamento" seq_id="'.$row['id'].'">Deletar</button></td>
                                                       </tr>';
                                         }
                                         ?>
@@ -194,30 +210,32 @@
                                         <thead>
                                         <tr>
                                             <th>Data</th>
-                                            <th>Animal</th>
                                             <th>Pesquisador</th>
                                             <th>Serviço Utilizado</th>
-                                            <th>Observações</th>
-                                            <th>Eletroferograma</th>
-                                            <th>Nucleotidicas</th>
+                                            <th>Identificação Amostra (Observações)</th>
+                                            <th>Eletroferograma / Nucleotidicas</th>
+<!--                                            <th>Nucleotidicas</th>-->
                                             <th>Mapa da Placa</th>
                                             <th>Numeo de Sequencias</th>
+                                            <th></th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <?php
                                             $result = getAllMultiSequenciamentos($user['id'], $user['professor_id'], $user['role_id']);
                                             while ($row = $result->fetch_assoc()) {
+                                                $user = getUserDetails($row['pesquisador_id']);
+                                                $time = strtotime($row['data']);
+                                                $date = date('d/m/Y',$time);
                                                 echo '<tr class="">
-                                                        <td>' . $row['data']  .'</td>
-                                                        <td>' . $row['animal_id'] .'</td>
-                                                        <td>' . $row['pesquisador_id'] .'</td>
+                                                        <td>' . $date .'</td>
+                                                        <td>' . $user['nome'] .'</td>
                                                         <td>' . $row['servico_utilizado'] .'</td>
                                                         <td>' . $row['observacoes'] .'</td>
                                                         <td><a class="glyphicon glyphicon-file" href="' . $row['eletroferograma'] .'" target="_blank"></a></td>
-                                                        <td><a class="glyphicon glyphicon-file" href="' . $row['nucleotidicas'] .'" target="_blank"></a></td>
                                                         <td><a class="glyphicon glyphicon-file" href="' . $row['mapa_placa'] .'" target="_blank"></a></td>
                                                         <td>' . $row['numero_sequencias'] .'</td>
+                                                        <td><button type="button" class="btn btn-outline btn-danger delete_sequenciamento" seq_id="'.$row['id'].'">Deletar</button></td>
                                                       </tr>';
                                             }
                                         ?>
@@ -259,17 +277,17 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Coleção</label>
-                                        <select class="form-control" id="animal_select">
-                                            <?php
-                                            $result = getAllAnimals();
-                                            while ($row = $result->fetch_assoc()) {
-                                                echo '<option value="' . $row['id'] . '">' . $row['numero_smrp'] . " - " . $row['nome'] . '</option>';
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
+<!--                                    <div class="form-group">-->
+<!--                                        <label>Coleção</label>-->
+<!--                                        <select class="form-control" id="animal_select">-->
+<!--                                            --><?php
+//                                            $result = getAllAnimals();
+//                                            while ($row = $result->fetch_assoc()) {
+//                                                echo '<option value="' . $row['id'] . '">' . $row['numero_smrp'] . " - " . $row['nome'] . '</option>';
+//                                            }
+//                                            ?>
+<!--                                        </select>-->
+<!--                                    </div>-->
                                     <div class="form-group">
                                         <label>Serviço Utilizado</label>
                                         <input class="form-control" id="seq_service">
@@ -293,7 +311,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Observações</label>
+                                        <label>Identificação da Amostra (Observações)</label>
                                         <textarea class="form-control" rows="3" id="seq_obs"></textarea>
                                     </div>
 
@@ -303,14 +321,14 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Eletroferograma</label>
+                                        <label>Eletroferograma / Sequência Nucleotídica</label>
                                         <iframe style="width:100%; height:130px; border:none; " id="eletro_upload" src="../uploader/"></iframe>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label>Sequência Nucleotídica</label>
-                                        <iframe style="width:100%; height:130px; border:none; " id="nucleo_upload" src="../uploader/"></iframe>
-                                    </div>
+<!--                                    <div class="form-group">-->
+<!--                                        <label>Sequência Nucleotídica</label>-->
+<!--                                        <iframe style="width:100%; height:130px; border:none; " id="nucleo_upload" src="../uploader/"></iframe>-->
+<!--                                    </div>-->
 
                                     <div id="multiplo_only" class="panel-body" style="display: none;">
                                         <div class="form-group">
@@ -355,16 +373,62 @@
     <script src="../dist/js/sb-admin-2.js"></script>
 
     <script>
-    $(document).ready(function() {
-        $('#dataTables-unico').DataTable({
-            responsive: true
-        });
 
-        $('#dataTables-multiplo').DataTable({
-                responsive: true
-        });
+        $(document).ready(function() {
+            $('#dataTables-unico').DataTable({
+                responsive: true,
+                language: {
+                    search: "Procurar:",
+                    loadingRecords: "Carregando...",
+                    processing:     "Processando...",
+                    lengthMenu:"Mostrar _MENU_ Escolas",
+                    infoEmpty: "Nada para mostrar",
+                    info: "Página _PAGE_ de _PAGES_",
+                    emptyTable: "Nenhum código registrado.",
+                    paginate: {
+                        first: 'Primeira',
+                        previous: 'Anterior',
+                        next: 'Próxima',
+                        last: 'Última'
+                    },
+                    aria: {
+                        paginate: {
+                            first: 'Primeira',
+                            previous: 'Anterior',
+                            next: 'Próxima',
+                            last: 'Última'
+                        }
+                    }
+                }
+            });
 
-    });
+            $('#dataTables-multiplo').DataTable({
+                responsive: true,
+                language: {
+                    search: "Procurar:",
+                    loadingRecords: "Carregando...",
+                    processing:     "Processando...",
+                    lengthMenu:"Mostrar _MENU_ Escolas",
+                    infoEmpty: "Nada para mostrar",
+                    info: "Página _PAGE_ de _PAGES_",
+                    emptyTable: "Nenhum código registrado.",
+                    paginate: {
+                        first: 'Primeira',
+                        previous: 'Anterior',
+                        next: 'Próxima',
+                        last: 'Última'
+                    },
+                    aria: {
+                        paginate: {
+                            first: 'Primeira',
+                            previous: 'Anterior',
+                            next: 'Próxima',
+                            last: 'Última'
+                        }
+                    }
+                }
+            });
+        });
     </script>
 
 </body>
