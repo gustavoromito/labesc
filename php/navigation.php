@@ -71,12 +71,12 @@ if ($userIsLogged) {
                             <a href="publications.php"><i class="fa fa-edit fa-fw"></i> Publicações</a>
                         </li>
                         <li>
-                            <a href="collection.php"><i class="fa  fa-th fa-fw"></i> Coleção SRMP</a>
+                            <a href="collection.php"><i class="fa  fa-th fa-fw"></i> Citogenética</a>
                         </li>
                         <?php
                             if ($userIsLogged) {
                                 echo '<li>
-                                        <a href="dashboard.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                                        <a href="dashboard.php"><i class="fa fa-dashboard fa-fw"></i> Sequências Nucleotídicas</a>
                                     </li>';
                             }
                         ?>
